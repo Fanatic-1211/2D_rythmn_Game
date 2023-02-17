@@ -18,7 +18,7 @@ public class RhythmManager : MonoBehaviour
     AudioSource song;
 
     // track for notes
-    // array of notes
+    List<Note> notes;
 
     // buffer for diag taps
     float buff;
@@ -32,6 +32,9 @@ public class RhythmManager : MonoBehaviour
     // track hilighter
     public highlighTrack track;
 
+    // note generator
+    public NoteGen noteGen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,10 @@ public class RhythmManager : MonoBehaviour
         curInv = 0;
 
         song = GetComponent<AudioSource>();
+
+        print("generating notes...");
+        // create random test notes
+        notes = noteGen.genRandNotes(40f);
     }
 
     // Update is called once per frame
@@ -50,78 +57,53 @@ public class RhythmManager : MonoBehaviour
         tapTracking();
     }
 
+    // function that determines what note is tapped
     void tapTracking()
     {
         // flash rings on tap
         if (Input.GetKeyDown("w"))
         {
             ringU.flashRing();
-            //track.flashTrack("U");
 
-            // check note tap
-            //if (CONDITION)
-            //{
-            //    track.flashTrack("W");
-            //    Destroy(note.gameObject);
-            //}
-
+            // check if note was hit
             // if not, make diagonal check
-            // else
-            StartCoroutine(diagonalCheck(0.1f, NOTE_TYPE.U));
+            if (!checkNoteTap(NOTE_TYPE.U))
+                StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.U));
         }
 
         if (Input.GetKeyDown("a"))
         {
             ringL.flashRing();
-            //track.flashTrack("L");
 
-            // check note tap
-            //if (CONDITION)
-            //{
-            //    track.flashTrack("A");
-            //    Destroy(note.gameObject);
-            //}
-
+            // check if note was hit
             // if not, make diagonal check
-            // else
-            StartCoroutine(diagonalCheck(0.1f, NOTE_TYPE.L));
+            if (!checkNoteTap(NOTE_TYPE.L))
+                StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.L));
         }
 
         if (Input.GetKeyDown("s"))
         {
             ringD.flashRing();
-            //track.flashTrack("D");
 
-            // check note tap
-            //if (CONDITION)
-            //{
-            //    track.flashTrack("S");
-            //    Destroy(note.gameObject);
-            //}
-
-            // if not, make diagonal check\
-            // else
-            StartCoroutine(diagonalCheck(0.1f, NOTE_TYPE.D));
+            // check if note was hit
+            // if not, make diagonal check
+            if (!checkNoteTap(NOTE_TYPE.D))
+                StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.D));
         }
 
         if (Input.GetKeyDown("d"))
         {
             ringR.flashRing();
 
-            // check note tap
-            //if (CONDITION)
-            //{
-            //    track.flashTrack("R");
-            //    Destroy(note.gameObject);
-            //}
-
+            // check if note was hit
             // if not, make diagonal check
-            // else
-            StartCoroutine(diagonalCheck(0.1f, NOTE_TYPE.R));
+            if (!checkNoteTap(NOTE_TYPE.R))
+                StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.R));
         }
     }
 
-    IEnumerator diagonalCheck(float duration, NOTE_TYPE type)
+    // helper IEnumerator that determines in a note was a diagonal tap
+    IEnumerator diagonalTracking(float duration, NOTE_TYPE type)
     {
         // duration = buffer between note taps
         // NOTE_TYPE to determine the first input note and notes to check
@@ -129,19 +111,22 @@ public class RhythmManager : MonoBehaviour
         while (duration > 0)
         {
             // each input note has its own possible diagonals
+            // check if note was hit, then flash track
             if (type == NOTE_TYPE.U)
             { 
                 // check L or R
                 // LEFT
                 if (Input.GetKeyDown("a"))
                 {
-                    //track.flashTrack(NOTE_TYPE.UL);
+                    if (checkNoteTap(NOTE_TYPE.UL))
+                        track.flashTrack(NOTE_TYPE.UL);
                     break;
                 }
                 // RIGHT
                 if (Input.GetKeyDown("d"))
                 {
-                    //track.flashTrack(NOTE_TYPE.UR);
+                    if (checkNoteTap(NOTE_TYPE.UR))
+                        track.flashTrack(NOTE_TYPE.UR);
                     break;
                 }
             }
@@ -151,13 +136,15 @@ public class RhythmManager : MonoBehaviour
                 // LEFT
                 if (Input.GetKeyDown("a"))
                 {
-                    //track.flashTrack(NOTE_TYPE.DL);
+                    if (checkNoteTap(NOTE_TYPE.DL))
+                        track.flashTrack(NOTE_TYPE.DL);
                     break;
                 }
                 // RIGHT
                 if (Input.GetKeyDown("d"))
                 {
-                    //track.flashTrack(NOTE_TYPE.DR);
+                    if (checkNoteTap(NOTE_TYPE.DR))
+                        track.flashTrack(NOTE_TYPE.DR);
                     break;
                 }
             }
@@ -167,13 +154,15 @@ public class RhythmManager : MonoBehaviour
                 // UP
                 if (Input.GetKeyDown("w"))
                 {
-                    //track.flashTrack(NOTE_TYPE.UL);
+                    if (checkNoteTap(NOTE_TYPE.UL))
+                        track.flashTrack(NOTE_TYPE.UL);
                     break;
                 }
                 // DOWN
                 if (Input.GetKeyDown("s"))
                 {
-                    //track.flashTrack(NOTE_TYPE.DL);
+                    if (checkNoteTap(NOTE_TYPE.DL))
+                        track.flashTrack(NOTE_TYPE.DL);
                     break;
                 }
             }
@@ -183,13 +172,15 @@ public class RhythmManager : MonoBehaviour
                 // UP
                 if (Input.GetKeyDown("w"))
                 {
-                    //track.flashTrack(NOTE_TYPE.UR);
+                    if (checkNoteTap(NOTE_TYPE.UR))
+                        track.flashTrack(NOTE_TYPE.UR);
                     break;
                 }
                 // DOWN
                 if (Input.GetKeyDown("s"))
                 {
-                    //track.flashTrack(NOTE_TYPE.DR);
+                    if (checkNoteTap(NOTE_TYPE.DR))
+                        track.flashTrack(NOTE_TYPE.DR);
                     break;
                 }
             }
@@ -198,5 +189,33 @@ public class RhythmManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    // function that detemines in a note in the list has been tapped
+    bool checkNoteTap(NOTE_TYPE direction)
+    {
+        // check the most recent entries in the 'notes' list to determine if a hit was secured in the range
+        // use helper function in note class
+
+        for (int i = 0; i < notes.Count; i++)
+        {
+            if (notes[i].checkHit())
+                if (notes[i].type == direction)
+                {
+                    // note was in hiting range AND is the correct type, we can remove it from the list and delete the game ovject
+                    // flash the track, increment combo, add to score
+                    track.flashTrack(direction);
+                    GameObject toDelete = notes[i].gameObject;
+
+                    notes.Remove(notes[i]);
+                    Destroy(toDelete);
+
+                    //INCREMENT COMBO, ADD TO SCORE
+
+                    return true;
+                }
+        }
+
+        return false;
     }
 }

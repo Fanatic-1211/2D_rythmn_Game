@@ -11,12 +11,13 @@ public class Note : MonoBehaviour
 
     // useful math for diagonals
     float mult = Mathf.Sin(Mathf.PI / 4.0f);
+    public float trackSpeed = 3.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         // assign time (currently set to def value)
-        time = 2.0f;
+        // time = 2.0f;
     }
 
     // Update is called once per frame
@@ -33,34 +34,42 @@ public class Note : MonoBehaviour
             takeDamage();
     }
 
+    // creates general note given the type and time associated with it
+    public void initializeNote(NOTE_TYPE _type, float _time, Sprite sprite)
+    {
+        time = _time;
+        type = _type;
+        GetComponent<SpriteRenderer>().sprite = sprite;
+    }
+
     void drawNote()
     {
         switch (type)
         {
             case NOTE_TYPE.L:
-                transform.position = new Vector3(-(0.716f + (time * 2.5f)), 0, 0);
+                transform.position = new Vector3(-(0.716f + (time * trackSpeed)), 0, 0);
                 break;
             case NOTE_TYPE.R:
-                transform.position = new Vector3(0.716f + (time * 2.5f), 0, 0);
+                transform.position = new Vector3(0.716f + (time * trackSpeed), 0, 0);
                 break;
             case NOTE_TYPE.U:
-                transform.position = new Vector3(0, 0.716f + (time * 2.5f), 0);
+                transform.position = new Vector3(0, 0.716f + (time * trackSpeed), 0);
                 break;
             case NOTE_TYPE.D:
-                transform.position = new Vector3(0, -(0.716f + (time * 2.5f)), 0);
+                transform.position = new Vector3(0, -(0.716f + (time * trackSpeed)), 0);
                 break;
 
             case NOTE_TYPE.UR:
-                transform.position = new Vector3(0.545f + (time * 2.5f * mult), 0.545f + (time * 2.5f * mult), 0);
+                transform.position = new Vector3(0.545f + (time * trackSpeed * mult), 0.545f + (time * trackSpeed * mult), 0);
                 break;
             case NOTE_TYPE.UL:
-                transform.position = new Vector3(-(0.545f + (time * 2.5f * mult)), 0.545f + (time * 2.5f * mult), 0);
+                transform.position = new Vector3(-(0.545f + (time * trackSpeed * mult)), 0.545f + (time * trackSpeed * mult), 0);
                 break;
             case NOTE_TYPE.DL:
-                transform.position = new Vector3(-(0.545f + (time * 2.5f * mult)), -(0.545f + (time * 2.5f * mult)), 0);
+                transform.position = new Vector3(-(0.545f + (time * trackSpeed * mult)), -(0.545f + (time * trackSpeed * mult)), 0);
                 break;
             case NOTE_TYPE.DR:
-                transform.position = new Vector3(-(0.545f + (time * 2.5f * mult)), 0.545f + (time * 2.5f * mult), 0);
+                transform.position = new Vector3(0.545f + (time * trackSpeed * mult), -(0.545f + (time * trackSpeed * mult)), 0);
                 break;
         }
     }
@@ -80,5 +89,10 @@ public class Note : MonoBehaviour
 
         // destory object
         Destroy(gameObject);
+    }
+
+    public float getTime()
+    {
+        return time;
     }
 }
