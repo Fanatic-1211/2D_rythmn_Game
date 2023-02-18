@@ -176,6 +176,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2fdd8c176c055a449c1b80127142c11, type: 3}
   - {fileID: 21300000, guid: 3c6a38adf02668c488c41f57b898fa35, type: 3}
   - {fileID: 21300000, guid: 8063171610e627b46bb0e123c663c6a7, type: 3}
+  - {fileID: 21300000, guid: 89931e51cff60f841823427ac334816e, type: 3}
+  - {fileID: 21300000, guid: a39f411b5ed1f7e4cbfc7bfc1d983110, type: 3}
+  - {fileID: 21300000, guid: 7923bbba50a4070408a5986eaf786177, type: 3}
+  - {fileID: 21300000, guid: bd05c581803aea14ea717e0462838a77, type: 3}
   prefab: {fileID: 3072630936268498867, guid: dc7af432579ab5d4dab32955305c21b2, type: 3}
 --- !u!1 &212750983
 GameObject:
@@ -940,6 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b142f5e23c2ab49960890fba292d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audSource: {fileID: 0}
   ringL: {fileID: 1995552191}
   ringR: {fileID: 1716893916}
   ringU: {fileID: 1468233736}
@@ -1012,7 +1017,7 @@ SpriteRenderer:
   m_Size: {x: 0.65, y: 0.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1277673151
@@ -1764,7 +1769,7 @@ SpriteRenderer:
   m_SortingLayerID: 311470897
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 812eab39ef4f2504eb52f4d8358a1cfb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4887c5043d9f1134aab06492240f561f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
