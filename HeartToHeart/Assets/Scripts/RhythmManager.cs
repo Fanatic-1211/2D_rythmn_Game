@@ -15,7 +15,7 @@ public class RhythmManager : MonoBehaviour
 
 
     // song to play
-    AudioSource song;
+    public AudioSource audSource;
 
     // track for notes
     List<Note> notes;
@@ -43,8 +43,6 @@ public class RhythmManager : MonoBehaviour
         combo = 0;
         score = 0;
         curInv = 0;
-
-        song = GetComponent<AudioSource>();
 
         print("generating notes...");
         // create random test notes
