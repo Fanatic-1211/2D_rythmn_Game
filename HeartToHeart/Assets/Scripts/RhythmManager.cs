@@ -20,9 +20,6 @@ public class RhythmManager : MonoBehaviour
     // track for notes
     List<Note> notes;
 
-    // buffer for diag taps
-    float buff;
-
     // ring segments
     public RingControl ringL;
     public RingControl ringR;

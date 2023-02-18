@@ -32,7 +32,7 @@ public class NoteGen : MonoBehaviour
 
         while (tcounter < totTime)
         {
-            int noteInd = Random.Range(0, 8);
+            int noteInd = Random.Range(0, 10);
             float noteTime = tcounter + 2f;
             
             // create new instance of a note
@@ -64,6 +64,28 @@ public class NoteGen : MonoBehaviour
                     break;
                 case 7:
                     newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.DR, noteTime, noteSprites[7]);
+                    break;
+                case 8:
+                    // make other pair of duo notes
+                    GameObject _newDuoNote = Instantiate(prefab);
+
+                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.L, noteTime, noteSprites[8]);
+                    _newDuoNote.GetComponent<Note>().initializeNote(NOTE_TYPE.R, noteTime, noteSprites[9]);
+
+                    // add extra note to list
+                    noteList.Add(_newDuoNote.GetComponent<Note>());
+
+                    break;
+                case 9:
+                    // make other pair of duo notes
+                    GameObject newDuoNote_ = Instantiate(prefab);
+
+                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.U, noteTime, noteSprites[10]);
+                    newDuoNote_.GetComponent<Note>().initializeNote(NOTE_TYPE.D, noteTime, noteSprites[11]);
+
+                    // add extra note to list
+                    noteList.Add(newDuoNote_.GetComponent<Note>());
+
                     break;
             }
 
