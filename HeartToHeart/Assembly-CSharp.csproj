@@ -58,9 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\RingControl.cs" />
     <Compile Include="Assets\Scripts\RhythmManager.cs" />
+    <Compile Include="Assets\NoteGen.cs" />
     <Compile Include="Assets\Scripts\highlighTrack.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
-    <Compile Include="Assets\NoteGen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
