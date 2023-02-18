@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.15f1 (e8e88683f834) revision 15263878'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'en' Physical Memory: 16307 MB
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'en' Physical Memory: 16330 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2021.3.15f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-D:/School/1_Spring2023/Senior Project/Heart-to-Heart/HeartToHeart
+C:/Users/Hao/Documents/school stuff/Heart-to-Heart/HeartToHeart
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< Updated upstream
 59764
 Successfully changed project path to: D:/School/1_Spring2023/Senior Project/Heart-to-Heart/HeartToHeart
 D:/School/1_Spring2023/Senior Project/Heart-to-Heart/HeartToHeart
+=======
+52246
+Successfully changed project path to: C:/Users/Hao/Documents/school stuff/Heart-to-Heart/HeartToHeart
+C:/Users/Hao/Documents/school stuff/Heart-to-Heart/HeartToHeart
+>>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,26 +53,35 @@ D:/School/1_Spring2023/Senior Project/Heart-to-Heart/HeartToHeart
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
 Player connection [7516] Host "[IP] 10.2.0.251 [Port] 0 [Flags] 2 [Guid] 3747161078 [EditorId] 3747161078 [Version] 1048832 [Id] WindowsEditor(7,Lily-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
 Player connection [7516] Host "[IP] 10.2.0.251 [Port] 0 [Flags] 2 [Guid] 3747161078 [EditorId] 3747161078 [Version] 1048832 [Id] WindowsEditor(7,Lily-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 Refreshing native plugins compatible for Editor in 84.85 ms, found 4 plugins.
+=======
+Player connection [22540] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 1962214873 [EditorId] 1962214873 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-FVTA0LA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [22540] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 1962214873 [EditorId] 1962214873 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-FVTA0LA) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 83.70 ms, found 4 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.15f1 (e8e88683f834)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/School/1_Spring2023/Senior Project/Heart-to-Heart/HeartToHeart/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Hao/Documents/school stuff/Heart-to-Heart/HeartToHeart/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Renderer: NVIDIA GeForce RTX 2070 SUPER (ID=0x1e84)
     Vendor:   NVIDIA
-    VRAM:     12142 MB
+    VRAM:     8011 MB
     Driver:   31.0.15.1694
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56540
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -80,36 +95,70 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (567ms)
 		BeginReloadAssembly (67ms)
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56524
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005804 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 80.36 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.548 seconds
+Domain Reload Profiling:
+	ReloadAssembly (549ms)
+		BeginReloadAssembly (62ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
 		EndReloadAssembly (399ms)
 			LoadAssemblies (64ms)
+=======
+		EndReloadAssembly (393ms)
+			LoadAssemblies (60ms)
+>>>>>>> Stashed changes
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (86ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (22ms)
+<<<<<<< Updated upstream
 			SetupLoadedEditorAssemblies (245ms)
+=======
+			SetupLoadedEditorAssemblies (242ms)
+>>>>>>> Stashed changes
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (79ms)
 				BeforeProcessingInitializeOnLoad (1ms)
+<<<<<<< Updated upstream
 				ProcessInitializeOnLoadAttributes (116ms)
 				ProcessInitializeOnLoadMethodAttributes (42ms)
+=======
+				ProcessInitializeOnLoadAttributes (117ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
+>>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< Updated upstream
 Registered in 0.006374 seconds.
+=======
+Registered in 0.006763 seconds.
+>>>>>>> Stashed changes
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\School\1_Spring2023\Senior Project\Heart-to-Heart\HeartToHeart\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\School\1_Spring2023\Senior Project\Heart-to-Heart\HeartToHeart\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Hao\Documents\school stuff\Heart-to-Heart\HeartToHeart\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Hao\Documents\school stuff\Heart-to-Heart\HeartToHeart\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
+<<<<<<< Updated upstream
 Refreshing native plugins compatible for Editor in 79.15 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
@@ -117,10 +166,20 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1140ms)
 		BeginReloadAssembly (97ms)
+=======
+Refreshing native plugins compatible for Editor in 91.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.990 seconds
+Domain Reload Profiling:
+	ReloadAssembly (990ms)
+		BeginReloadAssembly (101ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 			CreateAndSetChildDomain (17ms)
 		EndReloadAssembly (932ms)
 			LoadAssemblies (84ms)
@@ -150,6 +209,37 @@ Unloading 4050 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 43 unused Assets / (202.9 KB). Loaded Objects now: 4501.
 Memory consumption went from 150.9 MB to 150.7 MB.
 Total: 3.425200 ms (FindLiveObjects: 0.321400 ms CreateObjectMapping: 0.102500 ms MarkObjects: 2.880700 ms  DeleteObjects: 0.119800 ms)
+=======
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (788ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (200ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (431ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (92ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (196ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.94 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4050 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (202.9 KB). Loaded Objects now: 4501.
+Memory consumption went from 150.8 MB to 150.6 MB.
+Total: 3.371500 ms (FindLiveObjects: 0.384800 ms CreateObjectMapping: 0.111900 ms MarkObjects: 2.727100 ms  DeleteObjects: 0.146800 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -163,6 +253,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
   Time since last request: 91905.910882 seconds.
   path: Assets/Art/Board/Tming_Ring_SPLIT.sai2
   artifactKey: Guid(8a94205e3230c6a4cad18aee0affae1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -677,3 +768,15 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+  Time since last request: 240524.185895 seconds.
+  path: Assets/NoteGen.cs
+  artifactKey: Guid(38decd9e4cb1aea48afe2de781ac0ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NoteGen.cs using Guid(38decd9e4cb1aea48afe2de781ac0ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43922a4e442d84274a26f121b70a6d29') in 0.028285 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.899667 seconds.
+  path: Assets/Scripts/RhythmManager.cs
+  artifactKey: Guid(92b142f5e23c2ab49960890fba292d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/RhythmManager.cs using Guid(92b142f5e23c2ab49960890fba292d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bece3244492a96281ad22e64960a7fef') in 0.005364 seconds 
+>>>>>>> Stashed changes
