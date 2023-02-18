@@ -13,6 +13,8 @@ public class RhythmManager : MonoBehaviour
     static float invTime = 2.0f;
     float curInv;
 
+    // bool for advancing notes
+    bool notePause = false;
 
     // song to play
     public AudioSource audSource;
@@ -49,7 +51,22 @@ public class RhythmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!notePause)
+            advanceNotes();
+
         tapTracking();
+
+        if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape))
+            notePause = !notePause;
+    }
+
+    void advanceNotes()
+    {
+        for (int i = 0; i < notes.Count; i++)
+            if (notes[i] == null)
+                notes.Remove(notes[i]);
+            else
+                notes[i].incrementPosition();
     }
 
     // function that determines what note is tapped
