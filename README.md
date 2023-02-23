@@ -5,11 +5,11 @@ Heart-to-Heart is a 2D rhythm game with visual novel elements. It features a rad
 The game is built on the Unity engine, using C# scripting. A working demo with a tutorial level, as well as two full levels, are planned for completion by the end of the Spring Semester 2023.
 
 ## Table of Contents
-* [Installation Instructions](https://github.com/Rajudarshan/Heart-to-Heart/edit/main/README.md#installation-instructions)
-* [Project Usage](https://github.com/Rajudarshan/Heart-to-Heart/edit/main/README.md#project-usage)
-* [Credits](https://github.com/Rajudarshan/Heart-to-Heart/edit/main/README.md#credits)
-* [License](https://github.com/Rajudarshan/Heart-to-Heart/edit/main/README.md#license)
-* [How to Contribute](https://github.com/Rajudarshan/Heart-to-Heart/edit/main/README.md#how-to-contribute)
+* [Installation Instructions](https://github.com/Lukewarm-Water/Heart-to-Heart/edit/raj_stuff/README.md#installation-instructions)
+* [Project Usage](https://github.com/Lukewarm-Water/Heart-to-Heart/edit/raj_stuff/README.md#project-usage)
+* [Credits](https://github.com/Lukewarm-Water/Heart-to-Heart/edit/raj_stuff/README.md#credits)
+* [License](https://github.com/Lukewarm-Water/Heart-to-Heart/edit/raj_stuff/README.md#license)
+* [How to Contribute](https://github.com/Lukewarm-Water/Heart-to-Heart/edit/raj_stuff/README.md#how-to-contribute)
 
 ## Installation Instructions
 1. Click on the [latest release](https://github.com/Lukewarm-Water/Heart-to-Heart) on the sidebar (not currently available).
@@ -47,4 +47,4 @@ Contributions are welcome! Here are some things you can add:
   5. Wait for your pull request to be merged.
 
 ## Thank You!
-Spread the love <3
+Spread the love ❤️
