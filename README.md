@@ -1,5 +1,5 @@
-# Heart-to-Heart
-<img src="https://user-images.githubusercontent.com/58494116/221058672-30916075-e9ec-43a9-86d5-399a90747b6d.png" height="100"> is a 2D rhythm game with visual novel elements. It features a radial playing field and a call-and-response mode. Play as Aria, a compassionate young woman who always helps others, as she learns to ask for help herself too. 
+# <img src="https://user-images.githubusercontent.com/58494116/221058672-30916075-e9ec-43a9-86d5-399a90747b6d.png" height="100"> 
+Heart-To-Heart is a 2D rhythm game with visual novel elements. It features a radial playing field and a call-and-response mode. Play as Aria, a compassionate young woman who always helps others, as she learns to ask for help herself too. 
 
 The game is built on the Unity engine, using C# scripting. A working demo with a tutorial level, as well as two full levels, are planned for completion by the end of the Spring Semester 2023.
 
