@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b142f5e23c2ab49960890fba292d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audSource: {fileID: 0}
+  audSource: {fileID: 721782892}
   ringL: {fileID: 1995552191}
   ringR: {fileID: 1716893916}
   ringU: {fileID: 1468233736}
