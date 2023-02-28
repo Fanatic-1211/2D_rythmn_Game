@@ -135,7 +135,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // RIGHT
-                if (Input.GetKeyDown("d"))
+                else if (Input.GetKeyDown("d"))
                 {
                     if (checkNoteTap(NOTE_TYPE.UR))
                         track.flashTrack(NOTE_TYPE.UR);
@@ -153,7 +153,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // RIGHT
-                if (Input.GetKeyDown("d"))
+                else if (Input.GetKeyDown("d"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DR))
                         track.flashTrack(NOTE_TYPE.DR);
@@ -171,7 +171,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // DOWN
-                if (Input.GetKeyDown("s"))
+                else if (Input.GetKeyDown("s"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DL))
                         track.flashTrack(NOTE_TYPE.DL);
@@ -189,7 +189,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // DOWN
-                if (Input.GetKeyDown("s"))
+                else if (Input.GetKeyDown("s"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DR))
                         track.flashTrack(NOTE_TYPE.DR);
