@@ -27,7 +27,7 @@ Raj Persaud - https://github.com/Rajudarshan
 
 Hao Zheng - https://github.com/marla0530
 
-Steven Menendez - 
+Steven Menendez - https://github.com/steven18112001
 
 Jayden Johnson - https://github.com/jaydenj21
 
