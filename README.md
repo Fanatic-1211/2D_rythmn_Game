@@ -15,9 +15,6 @@ The game is built on the Unity engine, using C# scripting. A working demo with a
 2. Download the .zip file.
 3. Unzip the file and start playing!
 
-## Project Usage ![Heart](https://user-images.githubusercontent.com/58494116/221059253-5c3e8f1b-22cd-4c9e-9f72-c7f14f696b4c.png)
--
-
 ## Credits ![Heart](https://user-images.githubusercontent.com/58494116/221059253-5c3e8f1b-22cd-4c9e-9f72-c7f14f696b4c.png)
 We are a team of 4th year University of Florida students, working on our Senior Project!
 
@@ -32,9 +29,6 @@ Steven Menendez - https://github.com/steven18112001
 Jayden Johnson - https://github.com/jaydenj21
 
 Advisor: Nick Heitzman
-
-## License ![Heart](https://user-images.githubusercontent.com/58494116/221059253-5c3e8f1b-22cd-4c9e-9f72-c7f14f696b4c.png)
--
 
 ## How to Contribute ![Heart](https://user-images.githubusercontent.com/58494116/221059253-5c3e8f1b-22cd-4c9e-9f72-c7f14f696b4c.png)
 Contributions are welcome! Here are some things you can add:
