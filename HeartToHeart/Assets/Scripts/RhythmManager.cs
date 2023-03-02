@@ -45,7 +45,8 @@ public class RhythmManager : MonoBehaviour
 
         print("generating notes...");
         // create random test notes
-        notes = noteGen.genRandNotes(40f);
+        //notes = noteGen.genRandNotes(40f);
+        notes = noteGen.getNotes("Assets/Map/TestMap.txt");
     }
 
     // Update is called once per frame
