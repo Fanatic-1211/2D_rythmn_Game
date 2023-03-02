@@ -47,6 +47,9 @@ TagManager:
   - name: Ring
     uniqueID: 311470897
     locked: 0
+  - name: Heart
+    uniqueID: 1673975019
+    locked: 0
   - name: Note
     uniqueID: 221859143
     locked: 0
