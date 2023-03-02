@@ -13,6 +13,8 @@ public class RhythmManager : MonoBehaviour
     static float invTime = 2.0f;
     float curInv;
 
+    // bool for advancing notes
+    bool notePause = false;
 
     // song to play
     public AudioSource audSource;
@@ -49,7 +51,22 @@ public class RhythmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!notePause)
+            advanceNotes();
+
         tapTracking();
+
+        if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape))
+            notePause = !notePause;
+    }
+
+    void advanceNotes()
+    {
+        for (int i = 0; i < notes.Count; i++)
+            if (notes[i] == null)
+                notes.Remove(notes[i]);
+            else
+                notes[i].incrementPosition();
     }
 
     // function that determines what note is tapped
@@ -118,7 +135,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // RIGHT
-                if (Input.GetKeyDown("d"))
+                else if (Input.GetKeyDown("d"))
                 {
                     if (checkNoteTap(NOTE_TYPE.UR))
                         track.flashTrack(NOTE_TYPE.UR);
@@ -136,7 +153,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // RIGHT
-                if (Input.GetKeyDown("d"))
+                else if (Input.GetKeyDown("d"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DR))
                         track.flashTrack(NOTE_TYPE.DR);
@@ -154,7 +171,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // DOWN
-                if (Input.GetKeyDown("s"))
+                else if (Input.GetKeyDown("s"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DL))
                         track.flashTrack(NOTE_TYPE.DL);
@@ -172,7 +189,7 @@ public class RhythmManager : MonoBehaviour
                     break;
                 }
                 // DOWN
-                if (Input.GetKeyDown("s"))
+                else if (Input.GetKeyDown("s"))
                 {
                     if (checkNoteTap(NOTE_TYPE.DR))
                         track.flashTrack(NOTE_TYPE.DR);
