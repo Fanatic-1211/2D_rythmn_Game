@@ -59,7 +59,7 @@ public class titleEvents : MonoBehaviour
             soundSource.PlayOneShot(moveSound);
 
             // call coroutine
-            StartCoroutine(moveTitle(170f));
+            StartCoroutine(moveTitle(260f));
         }
 
         // once enabled, we can start looking at stuff
@@ -98,7 +98,7 @@ public class titleEvents : MonoBehaviour
         // pulse on ever beat (105bpm)
         Invoke("pulseControl", bpmDiff);
 
-        StartCoroutine(pulseTitle(0.65f));
+        StartCoroutine(pulseTitle(1.05f));
     }
 
     void selectorControl(int moveDir)
@@ -107,7 +107,7 @@ public class titleEvents : MonoBehaviour
 
         selector.GetComponent<RectTransform>().localPosition = new Vector3(
                     selector.GetComponent<RectTransform>().localPosition.x,
-                    90 - (65f * currentSelection),
+                    90f - (95f * currentSelection),
                     0);
 
         // make sound
@@ -171,7 +171,7 @@ public class titleEvents : MonoBehaviour
 
         yield return null;
 
-        while (title.GetComponent<RectTransform>().localScale.x - currScale > 0.01f)
+        while (title.GetComponent<RectTransform>().localScale.x - currScale > 0.001f)
         {
             // start to decrease scale
             title.GetComponent<RectTransform>().localScale = new Vector3(
