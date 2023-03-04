@@ -893,7 +893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721782889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5877.0005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 65.3, y: 65.3, z: 65.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1012,6 +1012,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b142f5e23c2ab49960890fba292d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  heart: {fileID: 1277673152}
+  inv: 0
   audSource: {fileID: 721782892}
   ringL: {fileID: 1995552191}
   ringR: {fileID: 1716893916}
@@ -1029,6 +1032,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1277673151}
   - component: {fileID: 1277673150}
+  - component: {fileID: 1277673152}
+  - component: {fileID: 1277673153}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -1103,6 +1108,48 @@ Transform:
   m_Father: {fileID: 721782891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277673152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277673149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6330c8305c3eab429990b35c037b96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 721782893}
+--- !u!114 &1277673153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277673149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Heart Damage Levels
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: No DMG
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: f97157dd8b4605e4aa121830f7760f27, type: 3}
+    - m_Name: 1 DMG
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: bf483aa401d70734f8d3b6e19c8e58d4, type: 3}
+    - m_Name: 2 DMG
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 5e7cc439a62a6154dbe09a90cd6a6aa3, type: 3}
+    - m_Name: 3 DMG
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: bd1b311a56cb7e243816e5ad26c01767, type: 3}
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1 &1468233733
 GameObject:
   m_ObjectHideFlags: 0
