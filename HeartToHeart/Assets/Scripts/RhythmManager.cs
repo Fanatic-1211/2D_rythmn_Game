@@ -5,7 +5,7 @@ using UnityEngine;
 public class RhythmManager : MonoBehaviour
 {
     // values to track health, score, and combo
-    int health;
+    int health = 6;     // VARIABLE
     int combo;
     int score;
 
@@ -44,8 +44,7 @@ public class RhythmManager : MonoBehaviour
         curInv = 0;
 
         print("generating notes...");
-        // create random test notes
-        //notes = noteGen.genRandNotes(40f);
+        // notes = noteGen.genRandNotes(40f);
         notes = noteGen.getNotes("Assets/Map/TestMap.txt");
     }
 
@@ -230,5 +229,14 @@ public class RhythmManager : MonoBehaviour
         }
 
         return false;
+    }
+
+
+
+
+    // ------------ DAMAGE ------------ //
+    public void takeDamage()
+    {
+        // print("owie");
     }
 }

@@ -13,11 +13,16 @@ public class Note : MonoBehaviour
     float mult = Mathf.Sin(Mathf.PI / 4.0f);
     public float trackSpeed = 3.0f;
 
+    public RhythmManager parent;
+
     // Start is called before the first frame update
     void Start()
     {
         // assign time (currently set to def value)
         // time = 2.0f;
+
+        // get reference to RhythmManager
+        parent = GameObject.Find("Field").GetComponent<RhythmManager>();
     }
 
     // Update is called once per frame
@@ -91,6 +96,7 @@ public class Note : MonoBehaviour
     void takeDamage()
     {
         // talk to parent class about damage
+        parent.takeDamage();
 
         // destory object
         Destroy(gameObject);
