@@ -84,13 +84,22 @@ public class Note : MonoBehaviour
         }
     }
 
-    public bool checkHit()
+    public int checkHit()
     {
         // if the time is between the window, count as hit
-        if (Mathf.Abs(time) < 0.15f)
-            return true;
-
-        return false;
+        if (Mathf.Abs(time) < 0.15f) {
+            return 1;
+        }
+        else if (Mathf.Abs(time) < 0.10f) { 
+            return 2;
+            }
+        else if(Mathf.Abs(time) < 0.5f){
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
     }
 
     void takeDamage()
