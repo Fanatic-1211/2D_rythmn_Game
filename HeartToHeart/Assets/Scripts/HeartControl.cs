@@ -15,7 +15,7 @@ public class HeartControl : MonoBehaviour
         parent = GameObject.Find("Field").GetComponent<RhythmManager>();
         animation = GameObject.Find("HeartAnimator").GetComponent<AnimationControl>();
         heartSprite = GetComponent<SpriteRenderer>();
-        animation.animationSprite.color = new Color(0f,0f,0f,0f);
+       
 
 
     }
@@ -33,19 +33,11 @@ public class HeartControl : MonoBehaviour
     }
     public void dmgAnimation()
     {
-        StartCoroutine(Animate());
-
-    }
-    IEnumerator Animate()
-    {
-        animation.animationSprite.color = new Color(255f, 255f, 255f, 255f);
         animation.dmgAnimation();
-        print("before dmg");
-        yield return new WaitForSeconds(2f);
-        print("after dmg");
-        animation.animationSprite.color = new Color(0f, 0f, 0f, 0f);
+        
 
     }
+    
     IEnumerator Flash()
     {
         heartSprite.color = new Color(1f, 1f, 1f, 0.2f); // flash transparent
