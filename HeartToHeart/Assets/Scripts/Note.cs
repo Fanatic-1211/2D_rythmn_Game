@@ -98,7 +98,7 @@ public class Note : MonoBehaviour
         // talk to parent class about damage
         parent.takeDamage();
 
-        // destory object
+        // destroy object
         Destroy(gameObject);
     }
 
