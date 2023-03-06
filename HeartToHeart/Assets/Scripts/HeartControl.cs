@@ -5,16 +5,19 @@ using UnityEngine;
 public class HeartControl : MonoBehaviour
 {
     public RhythmManager parent;
-
+    public AnimationControl animation;
     private SpriteRenderer heartSprite;
     float flashLength;
-
     // Start is called before the first frame update
+
     void Start()
     {
         parent = GameObject.Find("Field").GetComponent<RhythmManager>();
-
+        animation = GameObject.Find("HeartAnimator").GetComponent<AnimationControl>();
         heartSprite = GetComponent<SpriteRenderer>();
+       
+
+
     }
 
     // Update is called once per frame
@@ -28,7 +31,13 @@ public class HeartControl : MonoBehaviour
         flashLength = 0.2f; // Change to a ratio of the BPM??
         StartCoroutine(Flash());
     }
+    public void dmgAnimation()
+    {
+        animation.dmgAnimation();
+        
 
+    }
+    
     IEnumerator Flash()
     {
         heartSprite.color = new Color(1f, 1f, 1f, 0.2f); // flash transparent

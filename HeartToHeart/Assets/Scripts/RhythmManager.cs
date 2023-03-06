@@ -218,7 +218,7 @@ public class RhythmManager : MonoBehaviour
 
         for (int i = 0; i < notes.Count; i++)
         {
-            if (notes[i].checkHit())
+            if (notes[i].checkHit()!=4)
                 if (notes[i].type == direction)
                 {
                     // note was in hiting range AND is the correct type, we can remove it from the list and delete the game ovject
@@ -230,6 +230,7 @@ public class RhythmManager : MonoBehaviour
                     Destroy(toDelete);
 
                     //INCREMENT COMBO, ADD TO SCORE
+                    //Adjust poor great and perfect here as well using notes[i].checkHit's vaule
 
                     return true;
                 }
@@ -247,8 +248,11 @@ public class RhythmManager : MonoBehaviour
         if (!inv)
         {
             health -= 1;
+            heart.dmgAnimation();
             StartCoroutine(invincibility(invTime));
+            
             heart.dmgFlash();
+           
         }
     }
 
