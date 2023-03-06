@@ -5,13 +5,18 @@ using UnityEngine;
 public class RhythmManager : MonoBehaviour
 {
     // values to track health, score, and combo
-    int health = 6;     // VARIABLE
+    public int health;     // VARIABLE
     int combo;
     int score;
 
+    // heart related stuff (might put this in the heart-connected script if too much)
+    public HeartControl heart;
+    public bool inv; // true if invincible. We can have this on true for the tutorial stage!
+
+
     // invincibility frames
     static float invTime = 2.0f;
-    float curInv;
+    float curInv; // don't think I'll use this
 
     // bool for advancing notes
     bool notePause = false;
@@ -38,10 +43,12 @@ public class RhythmManager : MonoBehaviour
     void Start()
     {
         // init ints
-        health = 6; 
+        health = 6; // change this based on difficulty
         combo = 0;
         score = 0;
-        curInv = 0;
+        inv = false;
+
+        heart = GameObject.Find("Heart").GetComponent<HeartControl>();
 
         print("generating notes...");
         // notes = noteGen.genRandNotes(40f);
@@ -237,6 +244,18 @@ public class RhythmManager : MonoBehaviour
     // ------------ DAMAGE ------------ //
     public void takeDamage()
     {
-        // print("owie");
+        if (!inv)
+        {
+            health -= 1;
+            StartCoroutine(invincibility(invTime));
+            heart.dmgFlash();
+        }
+    }
+
+    IEnumerator invincibility(float duration)
+    {
+        inv = true;
+        yield return new WaitForSeconds(duration);
+        inv = false;
     }
 }
