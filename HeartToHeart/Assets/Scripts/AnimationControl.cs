@@ -13,6 +13,7 @@ public class AnimationControl : MonoBehaviour
         animationSprite = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
         animationSprite.color = new Color(0f, 0f, 0f, 0f);
+        myAnimator.SetBool(damage, false);
     }
 
     // Update is called once per frame
@@ -23,13 +24,14 @@ public class AnimationControl : MonoBehaviour
 
     public void dmgAnimation()
     {
-        StartCoroutine(Animate());
-        
+    StartCoroutine(Animate());
+       
 
     }
     IEnumerator Animate()
     {
         animationSprite.color = new Color(255f, 255f, 255f, 255f);
+        
         myAnimator.SetBool(damage, true);
         yield return new WaitForSeconds(0.666f);
         myAnimator.SetBool(damage, false);
