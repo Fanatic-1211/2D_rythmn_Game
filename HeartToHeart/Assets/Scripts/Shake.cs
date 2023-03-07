@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shake : MonoBehaviour
 {
     public AnimationCurve curve;
-    public float duration = 1f;
+    public float duration = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
