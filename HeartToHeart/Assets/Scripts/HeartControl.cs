@@ -6,6 +6,7 @@ public class HeartControl : MonoBehaviour
 {
     public RhythmManager parent;
     public AnimationControl animation;
+    public Shake shake;
     private SpriteRenderer heartSprite;
     float flashLength;
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class HeartControl : MonoBehaviour
         parent = GameObject.Find("Field").GetComponent<RhythmManager>();
         animation = GameObject.Find("HeartAnimator").GetComponent<AnimationControl>();
         heartSprite = GetComponent<SpriteRenderer>();
-       
+        shake= GameObject.Find("Main Camera").GetComponent<Shake>();
 
 
     }
@@ -34,8 +35,7 @@ public class HeartControl : MonoBehaviour
     public void dmgAnimation()
     {
         animation.dmgAnimation();
-        
-
+        shake.startShaking();
     }
     
     IEnumerator Flash()
