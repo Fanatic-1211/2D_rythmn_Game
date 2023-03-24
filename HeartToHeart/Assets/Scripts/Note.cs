@@ -87,13 +87,13 @@ public class Note : MonoBehaviour
     public int checkHit()
     {
         // if the time is between the window, count as hit
-        if (Mathf.Abs(time) < 0.15f) {
+        if (Mathf.Abs(time) < 0.10f) {
             return 1;
         }
-        else if (Mathf.Abs(time) < 0.10f) { 
+        else if (Mathf.Abs(time) < 0.15f) { 
             return 2;
             }
-        else if(Mathf.Abs(time) < 0.5f){
+        else if(Mathf.Abs(time) < 0.25f){
             return 3;
         }
         else

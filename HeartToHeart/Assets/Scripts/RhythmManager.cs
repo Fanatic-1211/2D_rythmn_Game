@@ -51,8 +51,8 @@ public class RhythmManager : MonoBehaviour
         heart = GameObject.Find("Heart").GetComponent<HeartControl>();
 
         print("generating notes...");
-        // notes = noteGen.genRandNotes(40f);
-        notes = noteGen.getNotes("Assets/Map/TestMap.txt");
+        notes = noteGen.genRandNotes(40f);
+        // notes = noteGen.getNotes("Assets/Map/TestMap.txt");
     }
 
     // Update is called once per frame
