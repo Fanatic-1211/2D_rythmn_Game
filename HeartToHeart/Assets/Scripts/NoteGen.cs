@@ -209,25 +209,20 @@ public class NoteGen : MonoBehaviour
             GameObject newNote = Instantiate(prefab2);
             GameObject newNote2 = Instantiate(prefab);
             GameObject newNote3 = Instantiate(prefab);
-            float offset = .10f;
             float variable = float.Parse(data[2]);
             switch (data[0])
             {
                 case "HL":
-                    offset *= variable;
-                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HL, NOTE_TYPE.HL, float.Parse(data[1]), noteSprites[12], noteSprites[0], newNote2, newNote3, offset);
+                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HL, NOTE_TYPE.HL, float.Parse(data[1]), noteSprites[12], noteSprites[0], newNote2, newNote3, variable);
                     break;
                 case "HR":
-                    offset *= variable;
-                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HR, NOTE_TYPE.HR, float.Parse(data[1]), noteSprites[12], noteSprites[1], newNote2, newNote3, offset);
+                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HR, NOTE_TYPE.HR, float.Parse(data[1]), noteSprites[12], noteSprites[1], newNote2, newNote3, variable);
                     break;
                 case "HU":
-                    offset *= variable;
-                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HU, NOTE_TYPE.HU, float.Parse(data[1]), noteSprites[13], noteSprites[2], newNote2, newNote3, offset);
+                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HU, NOTE_TYPE.HU, float.Parse(data[1]), noteSprites[13], noteSprites[2], newNote2, newNote3, variable);
                     break;
                 case "HD":
-                    offset *= variable;
-                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HD, NOTE_TYPE.HD, float.Parse(data[1]), noteSprites[13], noteSprites[3], newNote2, newNote3, offset);
+                    newNote.GetComponent<HoldNote>().initializeNote(HOLD_NOTE_TYPE.HD, NOTE_TYPE.HD, float.Parse(data[1]), noteSprites[13], noteSprites[3], newNote2, newNote3, variable);
                     break;
             }
             // add to the list

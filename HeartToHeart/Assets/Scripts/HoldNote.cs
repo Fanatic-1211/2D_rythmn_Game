@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// DELETE ME
 public enum HOLD_NOTE_TYPE {HU, HD, HR, HL};
 
 public class HoldNote : MonoBehaviour
@@ -44,12 +45,12 @@ public class HoldNote : MonoBehaviour
                 if (type == HOLD_NOTE_TYPE.HU || type == HOLD_NOTE_TYPE.HD)
                 {
                     float scaleY = Mathf.Abs(newNote1.transform.position.y - newNote2.transform.position.y);
-                    transform.localScale = new Vector3(1, scaleY * 9.46f, 1);
+                    transform.localScale = new Vector3(1, scaleY * 10f, 1);
                 }
                 else
                 {
                     float scaleX = Mathf.Abs(newNote1.transform.position.x - newNote2.transform.position.x);
-                    transform.localScale = new Vector3(scaleX * 9.46f, 1, 1);
+                    transform.localScale = new Vector3(scaleX * 10f, 1, 1);
                 }
             }
             else
@@ -60,7 +61,23 @@ public class HoldNote : MonoBehaviour
         }
         if (held == true)
         {
-            Debug.Log("Test");
+            // toggle ring flash ON
+            switch (firstNote.type)
+            {
+                case NOTE_TYPE.HL:
+                    parent.ringL.toggleRing(true);
+                    break;
+                case NOTE_TYPE.HR:
+                    parent.ringR.toggleRing(true);
+                    break;
+                case NOTE_TYPE.HU:
+                    parent.ringU.toggleRing(true);
+                    break;
+                case NOTE_TYPE.HD:
+                    parent.ringD.toggleRing(true);
+                    break;
+            }
+
             if (Input.GetKey(KeyCode.A) && firstNote.type == NOTE_TYPE.HL)
             {
                 firstNoteTime = 0.02225f;
@@ -68,11 +85,12 @@ public class HoldNote : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.A) && firstNote.type == NOTE_TYPE.HL)
             {
-                Debug.Log("TestA");
                 checkHitSecond();
                 checkTime();
                 held = false;
+                parent.ringL.toggleRing(false);
             }
+
             if (Input.GetKey(KeyCode.D) && firstNote.type == NOTE_TYPE.HR)
             {
                 firstNoteTime = 0.02225f;
@@ -80,11 +98,12 @@ public class HoldNote : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.D) && firstNote.type == NOTE_TYPE.HR)
             {
-                Debug.Log("TestD");
                 checkHitSecond();
                 checkTime();
                 held = false;
+                parent.ringR.toggleRing(false);
             }
+
             if (Input.GetKey(KeyCode.W) && firstNote.type == NOTE_TYPE.HU)
             {
                 firstNoteTime = 0.02225f;
@@ -92,22 +111,24 @@ public class HoldNote : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.W) && firstNote.type == NOTE_TYPE.HU)
             {
-                Debug.Log("TestW");
                 checkHitSecond();
                 checkTime();
                 held = false;
+                parent.ringU.toggleRing(false);
             }
+
             if (Input.GetKey(KeyCode.S) && firstNote.type == NOTE_TYPE.HD)
             {
                 firstNoteTime = 0.02225f;
                 checkTime();
             }
+
             else if (Input.GetKeyUp(KeyCode.S) && firstNote.type == NOTE_TYPE.HD)
             {
-                Debug.Log("TestS");
                 checkHitSecond();
                 checkTime();
                 held = false;
+                parent.ringD.toggleRing(false);
             }
         }
     }

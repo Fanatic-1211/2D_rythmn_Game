@@ -72,7 +72,6 @@ public class RhythmManager : MonoBehaviour
 
     void advanceNotes()
     {
-        
        for (int i = 0; i < notes.Count; i++)
            if (notes[i] == null)
                notes.Remove(notes[i]);
