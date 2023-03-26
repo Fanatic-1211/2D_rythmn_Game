@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour
     {
         // txtSpd = 1; // based on speed
         txt.text = string.Empty;
+        index = 0;
         StartDialogue();
     }
 
@@ -38,7 +39,6 @@ public class Dialogue : MonoBehaviour
 
     void StartDialogue()
     {
-        index = 0;
         StartCoroutine(Type());
     }
 
