@@ -104,5 +104,5 @@ MonoBehaviour:
   firstNote: {fileID: 0}
   secondNote: {fileID: 0}
   held: 0
-  trackSpeed: 3
+  trackSpeed: 2
   parent: {fileID: 0}

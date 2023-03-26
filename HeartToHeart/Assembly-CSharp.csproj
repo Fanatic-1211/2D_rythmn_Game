@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\HoldNote.cs" />
     <Compile Include="Assets\Scripts\RingControl.cs" />
     <Compile Include="Assets\Scripts\Shake.cs" />
     <Compile Include="Assets\Scripts\RhythmManager.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="Assets\Scripts\HeartControl.cs" />
     <Compile Include="Assets\Scripts\highlighTrack.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
-    <Compile Include="Assets\Scripts\HoldNote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

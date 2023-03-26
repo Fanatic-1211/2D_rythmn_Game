@@ -301,7 +301,10 @@ public class RhythmManager : MonoBehaviour
     }
     public Note returnSecondNote()
     {
-        return holdNotes[index].secondNote;
+        if (index >= 0 && index < holdNotes.Count)
+            return holdNotes[index].secondNote;
+        else
+            return null;
     }
     public void destroyGameObject()
     {

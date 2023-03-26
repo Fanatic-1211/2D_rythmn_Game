@@ -19,10 +19,7 @@ public class HoldNote : MonoBehaviour
     public bool held = false;
     bool created = false;
 
-
-    // useful math for diagonals
-    float mult = Mathf.Sin(Mathf.PI / 4.0f);
-    public float trackSpeed = 3.0f;
+    public float trackSpeed;
 
     public RhythmManager parent;
 
@@ -116,6 +113,8 @@ public class HoldNote : MonoBehaviour
     }
     public void checkTime()
     {
+        if (parent.returnSecondNote() == null)
+            return;
         if (parent.returnSecondNote().getTime() <= -0.25f)
         {
             // combo
