@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  trackSpeed: 2
+  trackSpeed: 3
   parent: {fileID: 0}

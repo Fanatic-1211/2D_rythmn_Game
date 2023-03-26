@@ -72,7 +72,6 @@ public class RhythmManager : MonoBehaviour
 
     void advanceNotes()
     {
-        
        for (int i = 0; i < notes.Count; i++)
            if (notes[i] == null)
                notes.Remove(notes[i]);
@@ -301,7 +300,10 @@ public class RhythmManager : MonoBehaviour
     }
     public Note returnSecondNote()
     {
-        return holdNotes[index].secondNote;
+        if (index >= 0 && index < holdNotes.Count)
+            return holdNotes[index].secondNote;
+        else
+            return null;
     }
     public void destroyGameObject()
     {
