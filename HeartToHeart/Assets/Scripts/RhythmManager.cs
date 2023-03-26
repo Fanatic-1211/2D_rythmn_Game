@@ -252,7 +252,7 @@ public class RhythmManager : MonoBehaviour
             StartCoroutine(invincibility(invTime));
             
             heart.dmgFlash();
-           
+            print(health);
         }
     }
 
