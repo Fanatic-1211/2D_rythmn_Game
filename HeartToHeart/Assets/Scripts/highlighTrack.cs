@@ -57,6 +57,18 @@ public class highlighTrack : MonoBehaviour
             case NOTE_TYPE.DR:
                 index = 7;
                 break;
+            case NOTE_TYPE.HU:
+                index = 0;
+                break;
+            case NOTE_TYPE.HD:
+                index = 1;
+                break;
+            case NOTE_TYPE.HL:
+                index = 2;
+                break;
+            case NOTE_TYPE.HR:
+                index = 3;
+                break;
         }
 
         float duration = 0.3f;
