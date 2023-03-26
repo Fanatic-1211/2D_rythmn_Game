@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\HeartControl.cs" />
     <Compile Include="Assets\Scripts\highlighTrack.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
+    <Compile Include="Assets\Scripts\HoldNote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -87,6 +88,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Music\Credits.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Map\TestHoldMap.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

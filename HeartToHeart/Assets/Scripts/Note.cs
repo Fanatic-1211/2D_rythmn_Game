@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum NOTE_TYPE { U, D, L, R, UL, UR, DL, DR};
 
+public enum NOTE_TYPE { U, D, L, R, UL, UR, DL, DR, HU, HD, HL, HR };
 public class Note : MonoBehaviour
 {
     float time;
@@ -39,9 +39,11 @@ public class Note : MonoBehaviour
         // draw note
         drawNote();
 
+
         // if position hits 0, take damage, delete note
         if (time <= -0.2864)
             takeDamage();
+            parent.setCombo(0);
     }
 
     // creates general note given the type and time associated with it
@@ -56,6 +58,18 @@ public class Note : MonoBehaviour
     {
         switch (type)
         {
+            case NOTE_TYPE.HL:
+                transform.position = new Vector3(-(0.716f + (time * trackSpeed)), 0, 0);
+                break;
+            case NOTE_TYPE.HR:
+                transform.position = new Vector3(0.716f + (time * trackSpeed), 0, 0);
+                break;
+            case NOTE_TYPE.HU:
+                transform.position = new Vector3(0, 0.716f + (time * trackSpeed), 0);
+                break;
+            case NOTE_TYPE.HD:
+                transform.position = new Vector3(0, -(0.716f + (time * trackSpeed)), 0);
+                break;
             case NOTE_TYPE.L:
                 transform.position = new Vector3(-(0.716f + (time * trackSpeed)), 0, 0);
                 break;
@@ -87,13 +101,16 @@ public class Note : MonoBehaviour
     public int checkHit()
     {
         // if the time is between the window, count as hit
-        if (Mathf.Abs(time) < 0.10f) {
+        if (Mathf.Abs(time) < 0.10f)
+        {
             return 1;
         }
-        else if (Mathf.Abs(time) < 0.15f) { 
+        else if (Mathf.Abs(time) < 0.15f)
+        {
             return 2;
-            }
-        else if(Mathf.Abs(time) < 0.25f){
+        }
+        else if (Mathf.Abs(time) < 0.25f)
+        {
             return 3;
         }
         else
@@ -101,6 +118,8 @@ public class Note : MonoBehaviour
             return 4;
         }
     }
+
+
 
     void takeDamage()
     {
@@ -114,5 +133,9 @@ public class Note : MonoBehaviour
     public float getTime()
     {
         return time;
+    }
+    public void setTime(float time)
+    {
+        this.time = time;
     }
 }

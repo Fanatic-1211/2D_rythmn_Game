@@ -180,7 +180,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a39f411b5ed1f7e4cbfc7bfc1d983110, type: 3}
   - {fileID: 21300000, guid: 7923bbba50a4070408a5986eaf786177, type: 3}
   - {fileID: 21300000, guid: bd05c581803aea14ea717e0462838a77, type: 3}
+  - {fileID: 21300000, guid: 9f306770459c35445b2fbdcd6d465f3e, type: 3}
+  - {fileID: 21300000, guid: 52901215c64d3934abf83b8074b074f4, type: 3}
   prefab: {fileID: 3072630936268498867, guid: dc7af432579ab5d4dab32955305c21b2, type: 3}
+  prefab2: {fileID: 6070277720002981952, guid: 81ceff74a145c3a46a1e206811545b7d, type: 3}
 --- !u!1 &212750983
 GameObject:
   m_ObjectHideFlags: 0
