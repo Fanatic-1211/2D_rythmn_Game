@@ -164,38 +164,79 @@ public class NoteGen : MonoBehaviour
     {
         List<Note> noteList = new List<Note>();
         List<string> fileLines = File.ReadAllLines(path).ToList();
-        foreach (string line in fileLines)
+        for (int i = 0; i < fileLines.Count; i++)
         {
-            string[] data = line.Split(" ");
-            GameObject newNote = Instantiate(prefab);
-            switch(data[0]){
-                case "L":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.L, float.Parse(data[1]), noteSprites[0]);
-                    break;
-                case "R":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.R, float.Parse(data[1]), noteSprites[1]);
-                    break;
-                case "U":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.U, float.Parse(data[1]), noteSprites[2]);
-                    break;
-                case "D":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.D, float.Parse(data[1]), noteSprites[3]);
-                    break;
-                case "UL":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.UL, float.Parse(data[1]), noteSprites[4]);
-                    break;
-                case "UR":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.UR, float.Parse(data[1]), noteSprites[5]);
-                    break;
-                case "DL":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.DL, float.Parse(data[1]), noteSprites[6]);
-                    break;
-                case "DR":
-                    newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.DR, float.Parse(data[1]), noteSprites[7]);
-                    break;
+            string[] data = fileLines[i].Split(" ");
+            string[] nextData=null;
+            if (i!= fileLines.Count-1)
+            {
+                nextData = fileLines[i+1].Split(" ");
             }
-            // add to the list
-            noteList.Add(newNote.GetComponent<Note>());
+            GameObject newNote = Instantiate(prefab);
+
+            if (nextData!=null && float.Parse(nextData[1]) - float.Parse(data[1]) < 0.05)
+            {
+                if (checkOpp(data[0], nextData[0])) {
+                    GameObject newNote2 = Instantiate(prefab);
+                    switch (data[0])
+                {
+                    case "L":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.L, float.Parse(data[1]), noteSprites[14]);
+                        newNote2.GetComponent<Note>().initializeNote(NOTE_TYPE.R, float.Parse(nextData[1]), noteSprites[15]);
+                        break;
+                    case "R":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.R, float.Parse(data[1]), noteSprites[15]);
+                        newNote2.GetComponent<Note>().initializeNote(NOTE_TYPE.L, float.Parse(nextData[1]), noteSprites[14]);
+                        break;
+                    case "U":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.U, float.Parse(data[1]), noteSprites[16]);       
+                        newNote2.GetComponent<Note>().initializeNote(NOTE_TYPE.D, float.Parse(nextData[1]), noteSprites[17]);
+                        break;
+                    case "D":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.D, float.Parse(data[1]), noteSprites[17]);
+                        newNote2.GetComponent<Note>().initializeNote(NOTE_TYPE.U, float.Parse(nextData[1]), noteSprites[16]);
+                        break;
+                }
+                    i++;
+                    noteList.Add(newNote.GetComponent<Note>());
+                    noteList.Add(newNote2.GetComponent<Note>());
+                }
+                nextData = null;
+            }
+            else
+            {
+                switch (data[0])
+                {
+                    case "L":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.L, float.Parse(data[1]), noteSprites[0]);
+                        break;
+                    case "R":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.R, float.Parse(data[1]), noteSprites[1]);
+                        break;
+                    case "U":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.U, float.Parse(data[1]), noteSprites[2]);
+                        break;
+                    case "D":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.D, float.Parse(data[1]), noteSprites[3]);
+                        break;
+                    case "UL":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.UL, float.Parse(data[1]), noteSprites[4]);
+                        break;
+                    case "UR":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.UR, float.Parse(data[1]), noteSprites[5]);
+                        break;
+                    case "DL":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.DL, float.Parse(data[1]), noteSprites[6]);
+                        break;
+                    case "DR":
+                        newNote.GetComponent<Note>().initializeNote(NOTE_TYPE.DR, float.Parse(data[1]), noteSprites[7]);
+                        break;
+                }
+                // add to the list
+                noteList.Add(newNote.GetComponent<Note>());
+            }
+            
+
         }
         return noteList;
     }
@@ -229,5 +270,32 @@ public class NoteGen : MonoBehaviour
             holdNoteList.Add(newNote.GetComponent<HoldNote>());
         }
         return holdNoteList;
+    }
+
+    private bool checkOpp(string first, string second)
+    {
+        if (first == "L" && second == "R")
+        {
+            return true;
+        }
+        else if (first == "R" && second == "L")
+        {
+            return true;
+        }
+        else if (first == "U" && second == "D")
+        {
+            return true;
+
+        }
+        else if (first == "D" && second == "U")
+        {
+            return true;
+
+        }
+        else 
+        {
+            return false;
+        }
+
     }
 }
