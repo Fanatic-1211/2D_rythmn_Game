@@ -1,0 +1,11 @@
+[Background] Subway
+[Line] Jeeze, this place is such a mess.
+[Line] Oh well! I'll deal with this tomorrow after my first day back.
+[Line] Lol xD
+[Background] [F] Office
+[Line] Like zoinks scoobs
+
+
+[Character] [Wesley] [EXPR] Worried [POSE] Open
+[Character] [Aria] [EXPR] Happy [POSE] Open
+[Line] Hi I'm Aria tee hee

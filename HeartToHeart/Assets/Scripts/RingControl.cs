@@ -14,7 +14,24 @@ public class RingControl : MonoBehaviour
         s = GetComponent<AudioSource>();
     }
 
-public void flashRing()
+    public void toggleRing(bool on)
+    {
+        if (on)
+        {
+            // turn ring on
+            // set color to max opacity
+            r.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            // turn ring off
+            // remove opacity
+            // set color to max opacity
+            r.color = new Color(1, 1, 1, 0.5f);
+        }
+    }
+
+    public void flashRing()
     {
         float duration = 0.3f;
 

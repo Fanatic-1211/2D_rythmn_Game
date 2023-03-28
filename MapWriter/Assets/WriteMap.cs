@@ -15,6 +15,8 @@ public class WriteMap : MonoBehaviour
     public RingControl ringR;
     public RingControl ringU;
     public RingControl ringD;
+    float heldTime = 0f;
+    float maxHeldTime = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,11 @@ public class WriteMap : MonoBehaviour
         {
             writer.Write("");
         }
-
+        filePath = Application.dataPath + "/holdMap.txt";
+        using (StreamWriter writer = new StreamWriter(filePath, false))
+        {
+            writer.Write("");
+        }
     }
 
     // Update is called once per frame
@@ -33,7 +39,6 @@ public class WriteMap : MonoBehaviour
         tapTracking();
     }
 
-
     void tapTracking()
     {
         // flash rings on tap
@@ -42,28 +47,110 @@ public class WriteMap : MonoBehaviour
             ringU.flashRing();
             // Write some text to the file
             WriteToFile("U " + time);
+            heldTime = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.U));
+        }
+        else if (Input.GetKey("w"))
+        {
+
+        }
+        else if (Input.GetKeyUp("w"))
+        {
+           
+            heldTime = Time.time-heldTime;
+            float temp = time - heldTime;
+            WriteToHoldFile("HU " + temp + " " + heldTime);
+            if (heldTime < maxHeldTime)
+            {
+                RemoveLastHoldLine();
+
+            }
+            else
+            {
+                RemoveLastLine();
+            }
+
         }
 
         if (Input.GetKeyDown("a"))
         {
             ringL.flashRing();
             WriteToFile("L " + time);
+            heldTime = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.L));
+        }
+        else if (Input.GetKey("a"))
+        {
+
+        }
+        else if (Input.GetKeyUp("a"))
+        {
+            heldTime = Time.time - heldTime;
+            float temp = time - heldTime;
+            WriteToHoldFile("HL " + temp + " " + heldTime);
+            if (heldTime < maxHeldTime)
+            {
+                RemoveLastHoldLine();
+
+            }
+            else
+            {
+                RemoveLastLine();
+            }
         }
 
         if (Input.GetKeyDown("s"))
         {
             ringD.flashRing();
             WriteToFile("D " + time);
+            heldTime = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.D));
+        }
+        else if (Input.GetKey("s"))
+        {
+
+        }
+        else if (Input.GetKeyUp("s"))
+        {
+            heldTime = Time.time - heldTime;
+            float temp = time - heldTime;
+            WriteToHoldFile("HD " + temp + " " + heldTime);
+            if (heldTime < maxHeldTime)
+            {
+                RemoveLastHoldLine();
+         
+            }
+            else
+            {
+                RemoveLastLine();
+            }
         }
 
         if (Input.GetKeyDown("d"))
         {
             ringR.flashRing();
             WriteToFile("R " + time);
+            heldTime = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.R));
+        }
+        else if (Input.GetKey("d"))
+        {
+
+        }
+        else if (Input.GetKeyUp("d"))
+        {
+            heldTime = Time.time - heldTime;
+            float temp = time - heldTime;
+            WriteToHoldFile("HR " + temp + " " + heldTime);
+            if (heldTime < maxHeldTime)
+            {
+                RemoveLastHoldLine();
+
+            }
+            else
+            {
+                RemoveLastLine();
+            }
         }
     }
 
@@ -164,6 +251,14 @@ public class WriteMap : MonoBehaviour
             writer.WriteLine(text);
         }
     }
+    private void WriteToHoldFile(string text)
+    {
+        string filePath = Application.dataPath + "/holdMap.txt";
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.WriteLine(text);
+        }
+    }
     private void RemoveLastLine()
     {
         string filePath = Application.dataPath + "/map.txt";
@@ -171,6 +266,14 @@ public class WriteMap : MonoBehaviour
         Array.Resize(ref lines, lines.Length - 1);
         File.WriteAllLines(filePath, lines);
     }
+    private void RemoveLastHoldLine()
+    {
+        string filePath = Application.dataPath + "/holdMap.txt";
+        string[] lines = File.ReadAllLines(filePath);
+        Array.Resize(ref lines, lines.Length - 1);
+        File.WriteAllLines(filePath, lines);
+    }
+
 
     void OnDestroy()
     {
