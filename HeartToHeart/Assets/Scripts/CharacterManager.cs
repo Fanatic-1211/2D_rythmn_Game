@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character
 {
     private string name;
     private float txtSpd;
@@ -15,10 +15,15 @@ public class Character : MonoBehaviour
         txtSpd = speed;
         txtClr = color;
     }
+
+    public string getName()
+    {
+        return name;
+    }
 }
 public class CharacterManager : MonoBehaviour
 {
-    // public List<Character> characters = new List<Character>();
+    public List<Character> characters = new List<Character>();
     public List<Sprite> nametag = new List<Sprite>();
     public List<Sprite> aExpr = new List<Sprite>();
     public List<Sprite> aPose = new List<Sprite>();
@@ -40,6 +45,11 @@ public class CharacterManager : MonoBehaviour
         Character x = new Character("Scaramouche", 0.1f, Color.black); // (because it's a little silhouetto of a man)
 
         activeCharacter = a;
+
+        characters.Add(a);
+        characters.Add(w);
+        characters.Add(c);
+        characters.Add(x);
     }
 
     // Update is called once per frame
@@ -47,6 +57,37 @@ public class CharacterManager : MonoBehaviour
     {
         
     }
+
+    public void ParseCharacter (string cmd)
+    {
+        // set the character to be active
+        string input = cmd.Substring(1, cmd.IndexOf(" "));
+        cmd = cmd.Substring(cmd.IndexOf(" ") + 1);
+        foreach (Character letter in characters)
+        {
+            if (letter.getName() == input)
+            {
+                activeCharacter = letter;
+            }
+        }
+        // LILY FUNCTION <3 open mouth?
+
+        if (cmd.Contains("[EXPR]"))
+        {
+            input = cmd.Substring(0, cmd.IndexOf(" "));
+            cmd = cmd.Substring(cmd.IndexOf(" ") + 1);
+        }
+        // LILY FUNCTION <3 set expression to input
+        
+        if (cmd.Contains("[POSE]"))
+        {
+            input = cmd.Substring(0, cmd.IndexOf(" "));
+        }
+        // LILY FUNCTION <3 set pose to input
+    }
+
+    //string stringBeforeChar = authors.Substring(0, authors.IndexOf(","));
+    //string stringAfterChar = authors.Substring(authors.IndexOf(",") + 2);
 
     // if Contains [Character]
     // substring until delimiter of [ or \n
