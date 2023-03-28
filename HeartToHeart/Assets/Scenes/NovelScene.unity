@@ -429,6 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468889626}
   - component: {fileID: 468889627}
+  - component: {fileID: 468889628}
   m_Layer: 0
   m_Name: VN_Manager
   m_TagString: Untagged
@@ -466,6 +467,19 @@ MonoBehaviour:
   txt: {fileID: 1581276146}
   txtSpd: 0.1
   textbox: {fileID: 500769882}
+--- !u!114 &468889628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468889625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947f18c2a2a76f649920097688fe9781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters: []
 --- !u!1 &500769882
 GameObject:
   m_ObjectHideFlags: 0
