@@ -2,66 +2,96 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
+using System.IO;
 
 public class Dialogue : MonoBehaviour
 {
+    // information for the textbox & visuals
     public TextMeshProUGUI txt;
-    public string[] lines;
     public float txtSpd;
+    public GameObject textbox;
+    bool crawling = false;
 
+    // information for the data being read from the file
+    private List<string> VNScript;
     private int index;
 
     // Start is called before the first frame update
     void Start()
     {
         // txtSpd = 1; // based on speed
-        txt.text = string.Empty;
-        index = 0;
-        StartDialogue();
+
+        ReadScript(1);
+
+        index = -1;
+        ReadNextLine();
+    }
+
+    void ReadScript(int sceneNumber)
+    {
+        // read lines in from the file, store in a data type
+        VNScript = File.ReadAllLines("Assets/VN_Files/scene" + sceneNumber + ".vn").ToList();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        // check to see if button was pressed
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (txt.text == lines[index])
-            {
-                NextLine();
-            } 
+            // if true set text to be finished immediately
+            if (crawling)
+                crawling = false;
             else
-            {
-                StopAllCoroutines();
-                txt.text = lines[index];
-            }
+                ReadNextLine();
         }
     }
 
-    void StartDialogue()
+    void ReadNextLine()
     {
-        StartCoroutine(Type());
+        index++;
+
+        if (index > VNScript.Count - 1)
+        {
+            textbox.SetActive(false);
+            return;
+        }
+
+        if (VNScript[index].Contains("[Line]"))
+        {
+            // clear current text
+            txt.text = "";
+
+            string line = VNScript[index].Substring(7);
+            StartCoroutine(Type(line));
+        }
+        
     }
 
-    IEnumerator Type()
+    IEnumerator Type(string line)
     {
-        foreach (char c in lines[index].ToCharArray())
+        crawling = true;
+
+        foreach (char c in line.ToCharArray())
         {
+            // at any point, if 'crawling' is turned off, stop early
+            if (!crawling)
+            {
+                txt.text = line;
+                break;
+            }
+
+            // if not, remain crawlin!
             txt.text += c;
             yield return new WaitForSeconds(txtSpd);
         }
+
+        crawling = false;
     }
 
-    void NextLine()
+    IEnumerator ChangeBG()
     {
-        if (index < lines.Length - 1)
-        {
-            index++;
-            txt.text = string.Empty;
-            StartCoroutine(Type());
-        } 
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        yield return null;
     }
 }
