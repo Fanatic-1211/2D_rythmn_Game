@@ -85,11 +85,4 @@ public class CharacterManager : MonoBehaviour
         }
         // LILY FUNCTION <3 set pose to input
     }
-
-    //string stringBeforeChar = authors.Substring(0, authors.IndexOf(","));
-    //string stringAfterChar = authors.Substring(authors.IndexOf(",") + 2);
-
-    // if Contains [Character]
-    // substring until delimiter of [ or \n
-    // if Contains [Expr]
 }
