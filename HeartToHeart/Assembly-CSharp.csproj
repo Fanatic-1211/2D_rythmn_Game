@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\RingControl.cs" />
     <Compile Include="Assets\Scripts\Shake.cs" />
     <Compile Include="Assets\Scripts\RhythmManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterManager.cs" />
     <Compile Include="Assets\Scripts\titleMove.cs" />
     <Compile Include="Assets\Scripts\AnimationControl.cs" />
     <Compile Include="Assets\Scripts\titleEvents.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Assets\Scripts\HeartControl.cs" />
     <Compile Include="Assets\Scripts\highlighTrack.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
-    <Compile Include="Assets\Scripts\CharacterManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

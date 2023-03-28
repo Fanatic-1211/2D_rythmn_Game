@@ -27,6 +27,8 @@ public class Dialogue : MonoBehaviour
     public List<Texture> backgrounds;
     public GameObject currBg;
 
+    public CharacterManager cManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,14 @@ public class Dialogue : MonoBehaviour
             return;
         }
 
+        // check for commands that don't affact the screen
+        while(VNScript[index].Contains("[Character]") || VNScript[index] == "")
+        {
+            if (VNScript[index].Contains("[Character]"))
+                cManager.ParseCharacter(VNScript[index].Substring(12));
+            index++;
+        }
+
         // read the next line!
         if (VNScript[index].Contains("[Line]"))
         {
@@ -93,7 +103,6 @@ public class Dialogue : MonoBehaviour
                 ChangeBG(bgName, false);
             }
         }
-        
     }
 
     IEnumerator Type(string line)
@@ -151,6 +160,8 @@ public class Dialogue : MonoBehaviour
         }
         fader.color = new Color(0, 0, 0, 1);
 
+        // clear current text
+        txt.text = "";
         // change bg texture
         currBg.GetComponent<RawImage>().texture = bgChange;
 
