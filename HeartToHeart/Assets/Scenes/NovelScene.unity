@@ -246,10 +246,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116466698}
-  - component: {fileID: 116466702}
-  - component: {fileID: 116466701}
   - component: {fileID: 116466700}
-  - component: {fileID: 116466703}
+  - component: {fileID: 116466701}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -294,34 +292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 116466697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 765181c9ef4b24d32a4f7cbd2ef370dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &116466702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116466697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &116466703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116466697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -332,16 +303,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b98b54630a4ebd44ca8aeb7ea01c022b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: b98b54630a4ebd44ca8aeb7ea01c022b, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &165269715
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +397,6 @@ GameObject:
   m_Component:
   - component: {fileID: 468889626}
   - component: {fileID: 468889627}
-  - component: {fileID: 468889628}
   m_Layer: 0
   m_Name: VN_Manager
   m_TagString: Untagged
@@ -467,19 +434,12 @@ MonoBehaviour:
   txt: {fileID: 1581276146}
   txtSpd: 0.1
   textbox: {fileID: 500769882}
---- !u!114 &468889628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468889625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947f18c2a2a76f649920097688fe9781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters: []
+  fader: {fileID: 853846719}
+  backgrounds:
+  - {fileID: 2800000, guid: b98b54630a4ebd44ca8aeb7ea01c022b, type: 3}
+  - {fileID: 2800000, guid: 90f950991b7e74a4fa43b378528be8df, type: 3}
+  - {fileID: 2800000, guid: d193cd81023124248a127f05a4b2d000, type: 3}
+  currBg: {fileID: 116466697}
 --- !u!1 &500769882
 GameObject:
   m_ObjectHideFlags: 0
