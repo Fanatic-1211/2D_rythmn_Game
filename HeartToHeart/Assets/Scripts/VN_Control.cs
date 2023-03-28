@@ -6,7 +6,7 @@ using TMPro;
 using System.Linq;
 using System.IO;
 
-public class Dialogue : MonoBehaviour
+public class VN_Control : MonoBehaviour
 {
     // information for the textbox & visuals
     public TextMeshProUGUI txt;
