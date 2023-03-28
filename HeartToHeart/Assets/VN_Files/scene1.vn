@@ -6,6 +6,12 @@
 [Line] Like zoinks scoobs
 
 
-[Character] [Wesley] [EXPR] Worried [POSE] Open
-[Character] [Aria] [EXPR] Happy [POSE] Open
+[Character] Wesley [EXPR] Worried [POSE] Open
+[Character] Aria [EXPR] Happy [POSE] Open		// active
 [Line] Hi I'm Aria tee hee
+[Line] What's poppin
+[Character] Wesley
+[Line] Oh im okay...
+[Character] Aria [EXPR] Worried
+[Character] Wesley
+[Line] Feelin kinda nervous...
