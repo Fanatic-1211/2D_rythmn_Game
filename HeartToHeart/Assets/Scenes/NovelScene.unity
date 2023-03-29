@@ -171,9 +171,9 @@ GameObject:
   m_Component:
   - component: {fileID: 21084576}
   - component: {fileID: 21084578}
-  - component: {fileID: 21084577}
+  - component: {fileID: 21084579}
   m_Layer: 5
-  m_Name: Name_ARIA
+  m_Name: Nametag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,15 @@ RectTransform:
   m_AnchoredPosition: {x: -11, y: 12}
   m_SizeDelta: {x: 19.2, y: 10.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &21084577
+--- !u!222 &21084578
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21084575}
+  m_CullTransparentMesh: 1
+--- !u!114 &21084579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,7 +216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 21084575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -219,24 +227,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b7bd28ade50f52c4384a81017168f898, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &21084578
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21084575}
-  m_CullTransparentMesh: 1
+  m_Texture: {fileID: 2800000, guid: b7bd28ade50f52c4384a81017168f898, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &116466697
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 165269716}
   - component: {fileID: 165269718}
-  - component: {fileID: 165269717}
+  - component: {fileID: 165269719}
   m_Layer: 5
   m_Name: Aria_Face
   m_TagString: Untagged
@@ -349,7 +346,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 876, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &165269717
+--- !u!222 &165269718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165269715}
+  m_CullTransparentMesh: 1
+--- !u!114 &165269719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +363,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 165269715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -369,24 +374,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99db57941fb93404593f8d75c54f7652, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &165269718
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165269715}
-  m_CullTransparentMesh: 1
+  m_Texture: {fileID: 2800000, guid: 1cd5acba97a62be479f09db3366aeb4a, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &468889625
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +435,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 90f950991b7e74a4fa43b378528be8df, type: 3}
   - {fileID: 2800000, guid: d193cd81023124248a127f05a4b2d000, type: 3}
   currBg: {fileID: 116466697}
+  cManager: {fileID: 468889628}
+  ariaVisual: {fileID: 832581279}
+  npcVisual: {fileID: 6522773}
 --- !u!114 &468889628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,45 +450,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947f18c2a2a76f649920097688fe9781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nametag:
-  - {fileID: 21300000, guid: b7bd28ade50f52c4384a81017168f898, type: 3}
-  - {fileID: 21300000, guid: be4c2a2363bd2824bae63fdff5e5e9ba, type: 3}
-  - {fileID: 21300000, guid: 8145354301e2ef9468829ece30bbbc50, type: 3}
+  nametagList:
+  - {fileID: 2800000, guid: b7bd28ade50f52c4384a81017168f898, type: 3}
+  - {fileID: 2800000, guid: be4c2a2363bd2824bae63fdff5e5e9ba, type: 3}
+  - {fileID: 2800000, guid: 8145354301e2ef9468829ece30bbbc50, type: 3}
+  - {fileID: 2800000, guid: c3de9612ca0b0d947b72185528e90b29, type: 3}
   aExpr:
-  - {fileID: 21300000, guid: 1cd5acba97a62be479f09db3366aeb4a, type: 3}
-  - {fileID: 21300000, guid: 99db57941fb93404593f8d75c54f7652, type: 3}
-  - {fileID: 21300000, guid: 504f42e6a4ab904478f72b90711c8bfc, type: 3}
-  - {fileID: 21300000, guid: 7abecbfa0a2672340806e8785362122e, type: 3}
-  - {fileID: 21300000, guid: d714b5c52dbdfb4469c4453e4556a133, type: 3}
-  - {fileID: 21300000, guid: 0e3875060e03cd34ba95f61f2b560dad, type: 3}
-  - {fileID: 21300000, guid: 5ae24b4ceaa2d3e4bb6e3b60bce3c698, type: 3}
-  - {fileID: 21300000, guid: bdfb1d88172fafc43aa550e9da892a61, type: 3}
-  - {fileID: 21300000, guid: 89b143d0c85106a4dbd7b7ef91d6b971, type: 3}
-  - {fileID: 21300000, guid: 7d01586d013247543be5162f8086c7d1, type: 3}
+  - {fileID: 2800000, guid: 1cd5acba97a62be479f09db3366aeb4a, type: 3}
+  - {fileID: 2800000, guid: 99db57941fb93404593f8d75c54f7652, type: 3}
+  - {fileID: 2800000, guid: 504f42e6a4ab904478f72b90711c8bfc, type: 3}
+  - {fileID: 2800000, guid: 0e3875060e03cd34ba95f61f2b560dad, type: 3}
+  - {fileID: 2800000, guid: 89b143d0c85106a4dbd7b7ef91d6b971, type: 3}
+  - {fileID: 2800000, guid: 7d01586d013247543be5162f8086c7d1, type: 3}
+  - {fileID: 2800000, guid: 5ae24b4ceaa2d3e4bb6e3b60bce3c698, type: 3}
+  - {fileID: 2800000, guid: bdfb1d88172fafc43aa550e9da892a61, type: 3}
+  - {fileID: 2800000, guid: d714b5c52dbdfb4469c4453e4556a133, type: 3}
+  - {fileID: 2800000, guid: 0e3875060e03cd34ba95f61f2b560dad, type: 3}
   aPose:
-  - {fileID: 21300000, guid: 1e0a4a09e4002404b9eb415ea872f424, type: 3}
-  - {fileID: 21300000, guid: bbbc847eb0142674f9a547b6e463c53a, type: 3}
-  - {fileID: 21300000, guid: f391ed237af4e1045ba1fbbd1cb1fd65, type: 3}
+  - {fileID: 2800000, guid: 1e0a4a09e4002404b9eb415ea872f424, type: 3}
+  - {fileID: 2800000, guid: bbbc847eb0142674f9a547b6e463c53a, type: 3}
+  - {fileID: 2800000, guid: f391ed237af4e1045ba1fbbd1cb1fd65, type: 3}
   wExpr:
-  - {fileID: 21300000, guid: be6ce11a77604c24ea651c6a7006106e, type: 3}
-  - {fileID: 21300000, guid: c0999e61ac8e87f43b6fb8e0dfcf6f62, type: 3}
-  - {fileID: 21300000, guid: 78c344957431545478eecaad7306ac2d, type: 3}
-  - {fileID: 21300000, guid: 3e05fcc8282aaa049847c7c6e9ea0d15, type: 3}
-  - {fileID: 21300000, guid: d07616bbd1218e044aa6641e7263fd5a, type: 3}
-  - {fileID: 21300000, guid: 38761c6e810b5954ab946be1ac32fa83, type: 3}
-  - {fileID: 21300000, guid: b044e3f05e5cfae4ba29620bb44027b8, type: 3}
-  - {fileID: 21300000, guid: 33f25d972d488a642955e60b7028851d, type: 3}
+  - {fileID: 2800000, guid: be6ce11a77604c24ea651c6a7006106e, type: 3}
+  - {fileID: 2800000, guid: c0999e61ac8e87f43b6fb8e0dfcf6f62, type: 3}
+  - {fileID: 2800000, guid: 78c344957431545478eecaad7306ac2d, type: 3}
+  - {fileID: 2800000, guid: 3e05fcc8282aaa049847c7c6e9ea0d15, type: 3}
+  - {fileID: 2800000, guid: b044e3f05e5cfae4ba29620bb44027b8, type: 3}
+  - {fileID: 2800000, guid: 33f25d972d488a642955e60b7028851d, type: 3}
+  - {fileID: 2800000, guid: d07616bbd1218e044aa6641e7263fd5a, type: 3}
+  - {fileID: 2800000, guid: 38761c6e810b5954ab946be1ac32fa83, type: 3}
   wPose:
-  - {fileID: 21300000, guid: 9366f67458eadc441b7b282650a1fcb0, type: 3}
-  - {fileID: 21300000, guid: 6a8cac5edd308904996fcd1bc49135c0, type: 3}
-  - {fileID: 21300000, guid: 8abcce023a92ade429c82a54b8933306, type: 3}
+  - {fileID: 2800000, guid: 9366f67458eadc441b7b282650a1fcb0, type: 3}
+  - {fileID: 2800000, guid: 6a8cac5edd308904996fcd1bc49135c0, type: 3}
+  - {fileID: 2800000, guid: 8abcce023a92ade429c82a54b8933306, type: 3}
   cExpr:
-  - {fileID: 21300000, guid: f0477010dbf80fe41a6011d12c7d0a06, type: 3}
-  - {fileID: 21300000, guid: f03a2ffc34256e8419dad3e7111493b6, type: 3}
+  - {fileID: 2800000, guid: f0477010dbf80fe41a6011d12c7d0a06, type: 3}
+  - {fileID: 2800000, guid: f03a2ffc34256e8419dad3e7111493b6, type: 3}
   cPose:
-  - {fileID: 21300000, guid: 656282b91aa225a4c9fa1b8508b111de, type: 3}
+  - {fileID: 2800000, guid: 656282b91aa225a4c9fa1b8508b111de, type: 3}
   misc:
-  - {fileID: 21300000, guid: dfe439de2520a93408293ee2334032ac, type: 3}
+  - {fileID: 2800000, guid: dfe439de2520a93408293ee2334032ac, type: 3}
+  aria_body: {fileID: 1251688181}
+  aria_expr: {fileID: 165269719}
+  npc_body: {fileID: 814187472}
+  npc_expr: {fileID: 603479544}
+  nametag: {fileID: 21084579}
 --- !u!1 &500769882
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb63f9bb4f57f364fb77f1e6014be921, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 534d8b98c55865646a3d81dd6c7e8ecd, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -580,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603479541}
   - component: {fileID: 603479543}
-  - component: {fileID: 603479542}
+  - component: {fileID: 603479544}
   m_Layer: 5
   m_Name: NPC_Face
   m_TagString: Untagged
@@ -609,7 +612,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 876, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &603479542
+--- !u!222 &603479543
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603479540}
+  m_CullTransparentMesh: 1
+--- !u!114 &603479544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -618,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 603479540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -629,24 +640,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 38761c6e810b5954ab946be1ac32fa83, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &603479543
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603479540}
-  m_CullTransparentMesh: 1
+  m_Texture: {fileID: 2800000, guid: 33f25d972d488a642955e60b7028851d, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &643525724
 GameObject:
   m_ObjectHideFlags: 0

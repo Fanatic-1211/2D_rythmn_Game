@@ -27,7 +27,10 @@ public class VN_Control : MonoBehaviour
     public List<Texture> backgrounds;
     public GameObject currBg;
 
+    // manager for characters, and their graphics
     public CharacterManager cManager;
+    public GameObject ariaVisual;
+    public GameObject npcVisual;
 
     // Start is called before the first frame update
     void Start()
@@ -71,10 +74,19 @@ public class VN_Control : MonoBehaviour
         }
 
         // check for commands that don't affact the screen
-        while(VNScript[index].Contains("[Character]") || VNScript[index] == "")
+        while(VNScript[index].Contains("[Character]") || VNScript[index].Contains("[Toggle]") || VNScript[index] == "")
         {
             if (VNScript[index].Contains("[Character]"))
                 cManager.ParseCharacter(VNScript[index].Substring(12));
+            else if (VNScript[index].Contains("[Toggle]"))
+            {
+                string toToggle = VNScript[index].Substring(9);
+
+                if (toToggle == "npc")
+                    npcVisual.SetActive(!npcVisual.activeSelf);
+                else if (toToggle == "Aria")
+                    npcVisual.SetActive(!ariaVisual.activeSelf);
+            }
             index++;
         }
 
@@ -85,7 +97,7 @@ public class VN_Control : MonoBehaviour
             txt.text = "";
 
             string line = VNScript[index].Substring(7);
-            StartCoroutine(Type(line));
+            StartCoroutine(Type(line, cManager.activeCharacter.txtCol(), cManager.activeCharacter.txtSpeed()));
         }
         else if (VNScript[index].Contains("[Background]"))
         {
@@ -105,8 +117,11 @@ public class VN_Control : MonoBehaviour
         }
     }
 
-    IEnumerator Type(string line)
+    IEnumerator Type(string line, Color col, float speed)
     {
+        // set text color
+        txt.color = col;
+
         crawling = true;
 
         foreach (char c in line.ToCharArray())
@@ -120,7 +135,7 @@ public class VN_Control : MonoBehaviour
 
             // if not, remain crawlin!
             txt.text += c;
-            yield return new WaitForSeconds(txtSpd);
+            yield return new WaitForSeconds(speed);
         }
 
         crawling = false;
@@ -145,7 +160,6 @@ public class VN_Control : MonoBehaviour
                 break;
         }
     }
-
     IEnumerator ChangeBG(Texture bgChange, float duration)
     {
         float time = 0;
