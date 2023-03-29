@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
 public class RhythmManager : MonoBehaviour
 {
     // values to track health, score, and combo
     public int health;     // VARIABLE
     public int combo;
     int score;
+
 
     // heart related stuff (might put this in the heart-connected script if too much)
     public HeartControl heart;
@@ -339,10 +341,14 @@ public class RhythmManager : MonoBehaviour
             heart.dmgAnimation();
             StartCoroutine(invincibility(invTime));
             heart.changeHeart(health);
+            print("Health remaining: "+health);
             heart.dmgFlash();
             print(health);
             combo = 0;
             printCombo();
+        }
+        if(health <= 0){
+            SceneManager.LoadScene("GameOver");
         }
     }
 
