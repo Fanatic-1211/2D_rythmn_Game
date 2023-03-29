@@ -19,6 +19,8 @@ public class HoldNote : MonoBehaviour
     float offset;
     public bool held = false;
     bool created = false;
+    public int index = -1;
+    public bool toBeDeleted = false;
 
     public float trackSpeed;
 
@@ -134,20 +136,42 @@ public class HoldNote : MonoBehaviour
     }
     public void checkTime()
     {
-        if (parent.returnSecondNote() == null)
-            return;
-        if (parent.returnSecondNote().getTime() <= -0.25f)
+        if (secondNoteTime <= -0.25f)
         {
             // combo
-            parent.destroyGameObject();
+            takeDamage();
         }
     }
     public void checkHitSecond()
     {
-        if (parent.returnSecondNote().checkHit() != 4)
+        int value = secondNote.checkHit();
+        if (value != 4)
         {
-            parent.destroyGameObject();
+            if (value == 1)
+            {
+                parent.combo += 1;
+                comboCaller();
+            }
+            if (value == 2)
+            {
+                parent.combo += 1;
+                comboCaller();
+            }
+            if (value == 3)
+            {
+                parent.combo = 0;
+                comboCaller();
+            }
         }
+    }
+    public void comboCaller()
+    {
+        parent.printCombo();
+        toBeDeleted = true;
+        parent.destroyGameObject(index);
+        Destroy(newNote1);
+        Destroy(newNote2);
+        Destroy(gameObject);
     }
     public void incrementPosition()
     {
@@ -167,8 +191,10 @@ public class HoldNote : MonoBehaviour
 
         // if position hits 0, take damage, delete note
         if (firstNoteTime <= -0.2864)
+        {
             takeDamage();
 
+        }
     }
 
     // creates general note given the type and time associated with it
