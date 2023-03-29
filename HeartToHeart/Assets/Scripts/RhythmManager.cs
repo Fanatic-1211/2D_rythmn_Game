@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using UnityEngine.SceneManagement;
 public class RhythmManager : MonoBehaviour
 {
     // values to track health, score, and combo
     public int health;     // VARIABLE
-    int combo;
+    public int combo;
     int score;
-    int index;
 
 
     // heart related stuff (might put this in the heart-connected script if too much)
     public HeartControl heart;
     public bool inv; // true if invincible. We can have this on true for the tutorial stage!
+    public Text comboText;
 
 
     // invincibility frames
@@ -46,7 +48,7 @@ public class RhythmManager : MonoBehaviour
     void Start()
     {
         // init ints
-        health = 6; // change this based on difficulty
+        health = 4; // change this based on difficulty
         combo = 0;
         score = 0;
         inv = false;
@@ -247,13 +249,16 @@ public class RhythmManager : MonoBehaviour
                     if (notes[i].checkHit() == 1)
                     {
                         combo++;
+                        printCombo();
                     }
                     else if (notes[i].checkHit() == 2)
                     {
                         combo++;
+                        printCombo();
                     }
                     else if (notes[i].checkHit() == 3){
                         combo = 0;
+                        printCombo();
                     }
 
 
@@ -285,12 +290,25 @@ public class RhythmManager : MonoBehaviour
                     // note was in hiting range AND is the correct type, we can remove it from the list and delete the game ovject
                     // flash the track, increment combo, add to score
                     // Slowly remove fill until done
-                    holdNotes[i].firstNoteTime -= holdNotes[i].firstNoteTime;
-                    holdNotes[i].secondNoteTime -= holdNotes[i].firstNoteTime;
                     track.flashTrack(direction);
                     Debug.Log(direction);
-                    index = i;
+                    holdNotes[i].index = i;
                     holdNotes[i].held = true;
+                    if (holdNotes[i].firstNote.checkHit() == 1)
+                    {
+                        combo++;
+                        printCombo();
+                    }
+                    else if (holdNotes[i].firstNote.checkHit() == 2)
+                    {
+                        combo++;
+                        printCombo();
+                    }
+                    else if (holdNotes[i].firstNote.checkHit() == 3)
+                    {
+                        combo = 0;
+                        printCombo();
+                    }
                     //INCREMENT COMBO, ADD TO SCORE
                     //Adjust poor great and perfect here as well using notes[i].checkHit's vaule
                     return true;
@@ -299,23 +317,20 @@ public class RhythmManager : MonoBehaviour
         }
         return false;
     }
-    public Note returnSecondNote()
+    public void destroyGameObject(int indexGiven)
     {
-        if (index >= 0 && index < holdNotes.Count)
-            return holdNotes[index].secondNote;
-        else
-            return null;
-    }
-    public void destroyGameObject()
-    {
-        GameObject toDelete1 = holdNotes[index].gameObject;
-        GameObject toDelete2 = holdNotes[index].firstNote.gameObject;
-        GameObject toDelete3 = holdNotes[index].secondNote.gameObject;
-        track.flashTrack(holdNotes[index].secondNote.type);
-        holdNotes.Remove(holdNotes[index]);
-        Destroy(toDelete1);
-        Destroy(toDelete2);
-        Destroy(toDelete3);
+        if (indexGiven != -1)
+        {
+            for (int i = 0; i < holdNotes.Count; i++)
+            {
+                if (holdNotes[i].toBeDeleted == true)
+                {
+                    track.flashTrack(holdNotes[i].secondNote.type);
+                    holdNotes.Remove(holdNotes[i]);
+                }
+            }
+
+        }
     }
     // ------------ DAMAGE ------------ //
     public void takeDamage()
@@ -325,9 +340,12 @@ public class RhythmManager : MonoBehaviour
             health -= 1;
             heart.dmgAnimation();
             StartCoroutine(invincibility(invTime));
+            heart.changeHeart(health);
             print("Health remaining: "+health);
             heart.dmgFlash();
             print(health);
+            combo = 0;
+            printCombo();
         }
         if(health <= 0){
             SceneManager.LoadScene("GameOver");
@@ -343,5 +361,14 @@ public class RhythmManager : MonoBehaviour
     public void setCombo(int num)
     {
         combo = num;
+    }
+    public void printCombo()
+    {
+        /*if (combo < 6)
+        {
+
+        }
+        */
+        comboText.text = "Combo: "+ combo;
     }
 }
