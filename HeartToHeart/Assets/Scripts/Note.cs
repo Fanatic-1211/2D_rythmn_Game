@@ -43,7 +43,6 @@ public class Note : MonoBehaviour
         // if position hits 0, take damage, delete note
         if (time <= -0.2864)
             takeDamage();
-            parent.setCombo(0);
     }
 
     // creates general note given the type and time associated with it

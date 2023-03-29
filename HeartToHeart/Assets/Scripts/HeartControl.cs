@@ -9,6 +9,7 @@ public class HeartControl : MonoBehaviour
     public Shake shake;
     private SpriteRenderer heartSprite;
     float flashLength;
+    public Sprite heartHurt, heartDamaged, heartTorn;
     // Start is called before the first frame update
 
     void Start()
@@ -26,7 +27,21 @@ public class HeartControl : MonoBehaviour
     {
 
     }
-
+    public void changeHeart(int health)
+    {
+        switch (health)
+        {
+            case 3:
+                heartSprite.sprite = heartHurt;
+                break;
+            case 2:
+                heartSprite.sprite = heartDamaged;
+                break;
+            case 1:
+                heartSprite.sprite = heartTorn;
+                break;
+        }
+    }
     public void dmgFlash()
     {
         flashLength = 0.2f; // Change to a ratio of the BPM??
