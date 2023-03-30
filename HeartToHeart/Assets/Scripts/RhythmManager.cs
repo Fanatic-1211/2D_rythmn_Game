@@ -10,6 +10,14 @@ public class RhythmManager : MonoBehaviour
     public int health;     // VARIABLE
     public int combo;
     int score;
+    public GameObject gradePrefab;
+    public GameObject gradeLocationRight, gradeLocationLeft, gradeLocationUp, gradeLocationDown;
+    public Sprite perfect, good, bad;
+    GameObject badObject;
+    GameObject goodObject;
+    GameObject perfectObject;
+
+
 
 
     // heart related stuff (might put this in the heart-connected script if too much)
@@ -250,15 +258,18 @@ public class RhythmManager : MonoBehaviour
                     {
                         combo++;
                         printCombo();
+                        flashGrade(1, notes[i].type);
                     }
                     else if (notes[i].checkHit() == 2)
                     {
                         combo++;
                         printCombo();
+                        flashGrade(2, notes[i].type);
                     }
                     else if (notes[i].checkHit() == 3){
                         combo = 0;
                         printCombo();
+                        flashGrade(3, notes[i].type);
                     }
 
 
@@ -298,16 +309,19 @@ public class RhythmManager : MonoBehaviour
                     {
                         combo++;
                         printCombo();
+                        flashGrade(1, holdNotes[i].firstNote.type);
                     }
                     else if (holdNotes[i].firstNote.checkHit() == 2)
                     {
                         combo++;
                         printCombo();
+                        flashGrade(2, holdNotes[i].firstNote.type);
                     }
                     else if (holdNotes[i].firstNote.checkHit() == 3)
                     {
                         combo = 0;
                         printCombo();
+                        flashGrade(3, holdNotes[i].firstNote.type);
                     }
                     //INCREMENT COMBO, ADD TO SCORE
                     //Adjust poor great and perfect here as well using notes[i].checkHit's vaule
@@ -370,5 +384,162 @@ public class RhythmManager : MonoBehaviour
         }
         */
         comboText.text = "Combo: "+ combo;
+    }
+    public void flashGrade(int grade, NOTE_TYPE type)
+    {
+
+        float duration = 0.6f;
+
+        // end previous coroutine
+        // call coroutine
+
+        StartCoroutine(printGrade(duration, grade, type));
+    }
+    IEnumerator printGrade(float duration, int grade, NOTE_TYPE type)
+    {
+        Destroy(badObject);
+        Destroy(goodObject);
+        Destroy(perfectObject);
+        switch (grade)
+        {
+            case 1:
+                // perfect
+                gradePrefab.GetComponent<SpriteRenderer>().sprite = perfect;
+                switch (type)
+                {
+                    case NOTE_TYPE.HL:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.HR:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.HU:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.HD:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.L:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.R:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.U:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.D:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+
+                    case NOTE_TYPE.UR:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.UL:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.DL:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.DR:
+                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                }
+                    break;
+            case 2:
+                // good
+                gradePrefab.GetComponent<SpriteRenderer>().sprite = good;
+                switch (type)
+                {
+                    case NOTE_TYPE.HL:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.HR:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.HU:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.HD:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.L:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.R:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.U:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.D:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+
+                    case NOTE_TYPE.UR:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.UL:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.DL:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.DR:
+                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                }
+                break;
+            case 3:
+                // bad
+                gradePrefab.GetComponent<SpriteRenderer>().sprite = bad;
+                switch (type)
+                {
+                    case NOTE_TYPE.HL:
+                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.HR:
+                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.HU:
+                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.HD:
+                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.L:
+                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.R:
+                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                    case NOTE_TYPE.U:
+                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.D:
+                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+
+                    case NOTE_TYPE.UR:
+                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
+                        break;
+                    case NOTE_TYPE.UL:
+                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
+                        break;
+                    case NOTE_TYPE.DL:
+                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
+                        break;
+                    case NOTE_TYPE.DR:
+                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                        break;
+                }
+                break;
+        }
+        yield return new WaitForSeconds(duration);
+        StopCoroutine("printGrade");
+        Destroy(badObject);
+        Destroy(goodObject);
+        Destroy(perfectObject);
+
     }
 }
