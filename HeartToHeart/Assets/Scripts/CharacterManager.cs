@@ -116,9 +116,6 @@ public class CharacterManager : MonoBehaviour
         activeCharacter = characters[0];
     }
 
-    // Update is called once per frame
-    void Update() {}
-
     void ResetActive()
     {
         // changes all current active character to their mouth closed components
@@ -206,6 +203,7 @@ public class CharacterManager : MonoBehaviour
             if (letter.getName() == input)
             {
                 SetActive(letter);
+                ChangeNPC(letter.getName());
                 break;
             }
 
@@ -260,9 +258,9 @@ public class CharacterManager : MonoBehaviour
     }
 
     // -------------- CHARACTER MOVEMENT HANDLERS -------------- //
-    void ChangeNPC()
+    void ChangeNPC(string name)
     {
-
+        return;
     }
     public void ShakeCharacter(float strength)
     {

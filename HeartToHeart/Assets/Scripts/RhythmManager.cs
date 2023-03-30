@@ -17,10 +17,7 @@ public class RhythmManager : MonoBehaviour
     GameObject goodObject;
     GameObject perfectObject;
 
-
-
-
-    // heart related stuff (might put this in the heart-connected script if too much)
+    // heart related variables
     public HeartControl heart;
     public bool inv; // true if invincible. We can have this on true for the tutorial stage!
     public Text comboText;
@@ -286,8 +283,6 @@ public class RhythmManager : MonoBehaviour
         return false;
     }
 
-
-
     bool checkHoldNoteTap(NOTE_TYPE direction)
     {
         // check the most recent entries in the 'notes' list to determine if a hit was secured in the range
@@ -372,6 +367,8 @@ public class RhythmManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         inv = false;
     }
+    // ------------ COMBO ------------ //
+
     public void setCombo(int num)
     {
         combo = num;
@@ -540,6 +537,5 @@ public class RhythmManager : MonoBehaviour
         Destroy(badObject);
         Destroy(goodObject);
         Destroy(perfectObject);
-
     }
 }
