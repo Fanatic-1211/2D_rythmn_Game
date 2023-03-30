@@ -16,17 +16,9 @@ public class AnimationControl : MonoBehaviour
         myAnimator.SetBool(damage, false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void dmgAnimation()
     {
     StartCoroutine(Animate());
-       
-
     }
     IEnumerator Animate()
     {

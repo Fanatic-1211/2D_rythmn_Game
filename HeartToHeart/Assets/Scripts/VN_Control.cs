@@ -78,9 +78,12 @@ public class VN_Control : MonoBehaviour
     {
         index++;
 
+        // at end of script, deactivate textbox and characters
         if (index > VNScript.Count - 1)
         {
             textbox.SetActive(false);
+            cManager.FadeCharacterInOut(false);
+            cManager.FadeCharacterInOut(true);
             return;
         }
 
