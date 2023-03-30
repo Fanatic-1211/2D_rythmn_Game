@@ -1,4 +1,3 @@
-[Toggle] npc
 [Background] Apartment
 [Character] Aria [EXPR] Confused [POSE] Closed
 [Line] Jeeze, this place is such a mess...
@@ -12,9 +11,7 @@
 [Line] I'll deal with this tomorrow after my first day back.
 [Character] Aria [EXPR] Happy [POSE] Down
 [Character] [OFF]
-[Toggle] Aria
 [Background] [F] Subway
-[Toggle] Aria
 [Character] Aria
 [Line] Do you mind if I sit next to you?
 [Toggle] npc

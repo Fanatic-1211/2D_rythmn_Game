@@ -243,12 +243,15 @@ public class CharacterManager : MonoBehaviour
         {
             case "Aria":
                 aria_expr.texture = aExpr[newExp];
+                characters[0].setExpIndex(newExp);
                 break;
             case "Wesley":
                 npc_expr.texture = wExpr[newExp];
+                characters[1].setExpIndex(newExp);
                 break;
             case "Carrie":
                 npc_expr.texture = cExpr[newExp];
+                characters[2].setExpIndex(newExp);
                 break;
             case "Boss":
                 // doesn't need anything since there's no difference
@@ -256,6 +259,84 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    // -------------- CHARACTER MOVEMENT HANDLERS -------------- //
+    void ChangeNPC()
+    {
+
+    }
+    public void ShakeCharacter(float strength)
+    {
+        if (activeCharacter.getNameTagIndex() == 0)
+            StartCoroutine(ShakeChar(strength, aria_body.gameObject, aria_expr.gameObject));
+        else
+            StartCoroutine(ShakeChar(strength, npc_body.gameObject, npc_expr.gameObject));
+    }
+    IEnumerator ShakeChar(float strength, GameObject body, GameObject face)
+    {
+        Vector3 startPos = body.transform.position;
+        float curTime = 0f;
+
+        while (curTime < 0.2f)
+        {
+            curTime += Time.deltaTime;
+            float curStr = strength * 0.01f;
+            Vector3 dist = Random.insideUnitCircle * curStr;
+
+            body.transform.position = startPos + dist;
+            face.transform.position = startPos + dist;
+
+            yield return null;
+        }
+        body.transform.position = startPos;
+        face.transform.position = startPos;
+    }
+    public void FadeCharacterInOut(bool which)
+    {
+        // if 'which' is true, fade aria's GameObject
+        if (which)
+        {
+            // if the opacity if greater than 0.5 (opaque), fade out
+            // if not, fade in
+            if (aria_body.color.a > 0.5)
+                StartCoroutine(FadeChar(false, aria_body, aria_expr));
+            else
+                StartCoroutine(FadeChar(true, aria_body, aria_expr));
+        }
+        // if false, fade npc's GameObject
+        else
+        {
+            if (npc_body.color.a > 0.5)
+                StartCoroutine(FadeChar(false, npc_body, npc_expr));
+            else
+                StartCoroutine(FadeChar(true, npc_body, npc_expr));
+        }
+    }
+    IEnumerator FadeChar(bool dir, RawImage body, RawImage face)
+    {
+        // dir = true, fades in, dir = false fades out
+        float alpha;
+        float curTime = 0f;
+
+        while (curTime < 0.05f)
+        {
+            curTime += Time.deltaTime;
+
+            // begin fading
+            alpha = (dir) ? (curTime / 0.1f) : 1 - (curTime / 0.1f);
+            body.color = new Color(1, 1, 1, alpha); 
+            face.color = new Color(1, 1, 1, alpha);
+
+            yield return null;
+        }
+
+        // then set to min/max to make sure we have no floating point issues
+        alpha = (dir) ? 1 : 0;
+        body.color = new Color(1, 1, 1, alpha);
+        face.color = new Color(1, 1, 1, alpha);
+    }
+
+
+    // -------------- CHARACTER EXPRESSION HANDLERS -------------- //
     void SetCharacterExpr(string expr)
     {
         switch (activeCharacter.getName())

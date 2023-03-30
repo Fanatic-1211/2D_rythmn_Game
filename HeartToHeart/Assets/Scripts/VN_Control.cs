@@ -14,18 +14,24 @@ public class VN_Control : MonoBehaviour
     public GameObject textbox;
     bool crawling = false;
 
+    // can players click?
+    bool interactable = false;
+
     // information for the data being read from the file
     private List<string> VNScript;
     private int index;
 
     // object to fade between scenes
-    public Image fader;
+    public Image bg_fader;
+    public Image scene_fader;
 
     // 0 - APARTMENT
     // 1 - SUBWAY
     // 2 - OFFICE
+    // 3 - BLACK SCREEN (for extended fades)
+    // 4 - WHITE SCREEN
     public List<Texture> backgrounds;
-    public GameObject currBg;
+    public RawImage currBg;
 
     // manager for characters, and their graphics
     public CharacterManager cManager;
@@ -42,6 +48,8 @@ public class VN_Control : MonoBehaviour
 
         ReadScript(1);
 
+        StartCoroutine(FadeScene(true, 1f));
+
         index = -1;
         ReadNextLine();
     }
@@ -56,7 +64,7 @@ public class VN_Control : MonoBehaviour
     void Update()
     {
         // check to see if button was pressed
-        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if(interactable && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             // if true set text to be finished immediately
             if (crawling)
@@ -86,9 +94,13 @@ public class VN_Control : MonoBehaviour
                 string toToggle = VNScript[index].Substring(9);
 
                 if (toToggle == "npc")
-                    npcVisual.SetActive(!npcVisual.activeSelf);
+                {
+                    cManager.FadeCharacterInOut(false);
+                }
                 else if (toToggle == "Aria")
-                    npcVisual.SetActive(!ariaVisual.activeSelf);
+                {
+                    cManager.FadeCharacterInOut(true);
+                }
             }
             index++;
         }
@@ -101,6 +113,9 @@ public class VN_Control : MonoBehaviour
 
             string line = VNScript[index].Substring(7);
             StartCoroutine(Type(line, cManager.activeCharacter.txtCol(), cManager.activeCharacter.txtSpeed(), cManager.activeCharacter.getTxtPitch()));
+
+            // shake char
+            cManager.ShakeCharacter(2.0f);
         }
         else if (VNScript[index].Contains("[Background]"))
         {
@@ -168,36 +183,73 @@ public class VN_Control : MonoBehaviour
             case "Office":
                 StartCoroutine(ChangeBG(backgrounds[2], length));
                 break;
+            default:
+            case "Black":
+                StartCoroutine(ChangeBG(backgrounds[3], length));
+                break;
+            case "White":
+                StartCoroutine(ChangeBG(backgrounds[4], length));
+                break;
         }
     }
     IEnumerator ChangeBG(Texture bgChange, float duration)
     {
+        interactable = false;
         float time = 0;
 
         // fade to black
         while (time < duration)
         {
-            fader.color = new Color(0, 0, 0, (time / duration));
+            bg_fader.color = new Color(0, 0, 0, (time / duration));
             time += Time.deltaTime;
 
             yield return null;
         }
-        fader.color = new Color(0, 0, 0, 1);
+
+
+        bg_fader.color = new Color(0, 0, 0, 1);
 
         // clear current text
         txt.text = "";
         // change bg texture
-        currBg.GetComponent<RawImage>().texture = bgChange;
+        currBg.texture = bgChange;
 
         // fade to transparent
         time = 0;
         while (time < duration)
         {
-            fader.color = new Color(0, 0, 0, 1f - (time / duration));
+            bg_fader.color = new Color(0, 0, 0, 1f - (time / duration));
             time += Time.deltaTime;
 
             yield return null;
         }
-        fader.color = new Color(0, 0, 0, 0);
+        bg_fader.color = new Color(0, 0, 0, 0);
+        interactable = true;
+    }
+    IEnumerator FadeScene(bool dir, float duration)
+    {
+        // wait for a brief moment
+        yield return new WaitForSeconds(duration);
+
+        // dir = true, fades in, dir = false fades out
+        float alpha;
+        float curTime = 0f;
+
+        while (curTime < duration)
+        {
+            curTime += Time.deltaTime;
+
+            // begin fading
+            alpha = (dir) ? 1 - (curTime / duration) : (curTime / duration);
+            scene_fader.color = new Color(0, 0, 0, alpha);
+
+            yield return null;
+        }
+
+        // then set to min/max to make sure we have no floating point issues
+        alpha = (dir) ? 0 : 1;
+        scene_fader.color = new Color(0, 0, 0, alpha);
+
+        interactable = true;
     }
 }
