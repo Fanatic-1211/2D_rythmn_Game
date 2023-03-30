@@ -84,7 +84,7 @@ public class VN_Control : MonoBehaviour
             return;
         }
 
-        // check for commands that don't affact the screen
+        // check for commands that don't affect the screen
         while(VNScript[index].Contains("[Character]") || VNScript[index].Contains("[Toggle]") || VNScript[index] == "")
         {
             if (VNScript[index].Contains("[Character]"))
@@ -103,6 +103,13 @@ public class VN_Control : MonoBehaviour
                 }
             }
             index++;
+        }
+
+        // if [Wait] is called, set interactable to false for the duration of time
+        if (VNScript[index].Contains("[Wait]"))
+        {
+            string line = VNScript[index].Substring(7);
+            StartCoroutine(Wait(float.Parse(line)));
         }
 
         // read the next line!
@@ -249,6 +256,14 @@ public class VN_Control : MonoBehaviour
         // then set to min/max to make sure we have no floating point issues
         alpha = (dir) ? 0 : 1;
         scene_fader.color = new Color(0, 0, 0, alpha);
+
+        interactable = true;
+    }
+    IEnumerator Wait(float duration)
+    {
+        interactable = false;
+
+        yield return new WaitForSeconds(duration);
 
         interactable = true;
     }
