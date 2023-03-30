@@ -8,6 +8,7 @@ public class Character
     private string name;
     private float txtSpd;
     private Color txtClr;
+    private float txtPitch;
 
     private int expIndex;
     private int poseIndex;
@@ -18,6 +19,7 @@ public class Character
         this.name = name;
         txtSpd = speed;
         txtClr = color;
+        txtPitch = 0.9f;
     }
     public string getName()
     {
@@ -31,6 +33,7 @@ public class Character
     {
         return txtClr;
     }
+    public float getTxtPitch() { return txtPitch; }
     public int getExpIndex()
     {
         return expIndex;
@@ -43,6 +46,7 @@ public class Character
     {
         return nametagIndex;
     }
+    public void setTxtPitch(float pitch) { txtPitch = pitch; }
     public void setExpIndex(int index)
     {
         expIndex = index;
@@ -101,6 +105,12 @@ public class CharacterManager : MonoBehaviour
         characters[1].setNametageInd(1);
         characters[2].setNametageInd(2);
         characters[3].setNametageInd(3);
+
+        // and text pitch
+        characters[0].setTxtPitch(0.9f);
+        characters[1].setTxtPitch(0.8f);
+        characters[2].setTxtPitch(0.95f);
+        characters[3].setTxtPitch(0.75f);
 
         // set default character to aria
         activeCharacter = characters[0];

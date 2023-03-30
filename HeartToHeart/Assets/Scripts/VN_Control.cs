@@ -32,6 +32,9 @@ public class VN_Control : MonoBehaviour
     public GameObject ariaVisual;
     public GameObject npcVisual;
 
+    // sounds for text crawling
+    public AudioSource txtBeep;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +100,7 @@ public class VN_Control : MonoBehaviour
             txt.text = "";
 
             string line = VNScript[index].Substring(7);
-            StartCoroutine(Type(line, cManager.activeCharacter.txtCol(), cManager.activeCharacter.txtSpeed()));
+            StartCoroutine(Type(line, cManager.activeCharacter.txtCol(), cManager.activeCharacter.txtSpeed(), cManager.activeCharacter.getTxtPitch()));
         }
         else if (VNScript[index].Contains("[Background]"))
         {
@@ -117,10 +120,13 @@ public class VN_Control : MonoBehaviour
         }
     }
 
-    IEnumerator Type(string line, Color col, float speed)
+    IEnumerator Type(string line, Color col, float speed, float pitch)
     {
         // set text color
         txt.color = col;
+
+        // set the current text pitch
+        txtBeep.pitch = pitch;
 
         crawling = true;
 
@@ -135,7 +141,11 @@ public class VN_Control : MonoBehaviour
 
             // if not, remain crawlin!
             txt.text += c;
-            yield return new WaitForSeconds(speed);
+
+            // play a sound
+            txtBeep.Play();
+
+            yield return new WaitForSeconds(speed / 2.0f);
         }
 
         crawling = false;
