@@ -150,25 +150,26 @@ public class HoldNote : MonoBehaviour
             if (value == 1)
             {
                 parent.combo += 1;
-                comboCaller();
+                comboCaller(1);
             }
             if (value == 2)
             {
                 parent.combo += 1;
-                comboCaller();
+                comboCaller(2);
             }
             if (value == 3)
             {
                 parent.combo = 0;
-                comboCaller();
+                comboCaller(3);
             }
         }
     }
-    public void comboCaller()
+    public void comboCaller(int grade)
     {
         parent.printCombo();
         toBeDeleted = true;
         parent.destroyGameObject(index);
+        parent.flashGrade(grade, firstNote.type);
         Destroy(newNote1);
         Destroy(newNote2);
         Destroy(gameObject);
