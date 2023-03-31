@@ -82,8 +82,8 @@ public class VN_Control : MonoBehaviour
         if (index > VNScript.Count - 1)
         {
             textbox.SetActive(false);
-            cManager.FadeCharacterInOut(false);
-            cManager.FadeCharacterInOut(true);
+            //cManager.FadeCharacterInOut(false);
+            //cManager.FadeCharacterInOut(true);
             return;
         }
 

@@ -18,6 +18,8 @@ public class titleEvents : MonoBehaviour
 
     // selector value
     int currentSelection = 0;
+    // is the selector usable?
+    bool selecting = true;
 
     // title music
     public AudioSource music;
@@ -32,6 +34,12 @@ public class titleEvents : MonoBehaviour
 
     // bool to check if the selection screen is active
     bool awake = false;
+
+    // index for the current screen displayed
+    // 0 = TITLE
+    // 1 = HOW TO PLAY
+    public GameObject titleScreen;
+    public GameObject how2playScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -65,30 +73,43 @@ public class titleEvents : MonoBehaviour
         // once enabled, we can start looking at stuff
         else if (awake)
         {
-            // move selector if necessary
-            if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && (currentSelection > 0))
-                selectorControl(-1);
-            else if ((Input.GetKeyDown("s") || Input.GetKeyDown(KeyCode.DownArrow)) && (currentSelection < 3))
-                selectorControl(1);
+            // move selector if not diabled
+            if (selecting)
+            {
+                if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && (currentSelection > 0))
+                    selectorControl(-1);
+                else if ((Input.GetKeyDown("s") || Input.GetKeyDown(KeyCode.DownArrow)) && (currentSelection < 3))
+                    selectorControl(1);
+            }
 
             // if enter is pressed, change scenes
-            else if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
+                // play selection sound
+                soundSource.PlayOneShot(selectSound);
+
+                // if on how2play, change back to title
+                if (!selecting)
+                {
+                    screenControl(0);
+                    return;
+                }
+
                 switch (currentSelection)
                 {
-                    case 0:
-                    case 2:                                 // start game for now
+                    case 0:                                 // VN start
                         StartCoroutine(selectScene(1, 1f));
                         break;
-                    case 1:                                 // tutorial screen
+                    case 1:                                 // tutorial screen is not a diff scene but on top of the title screen
+                        screenControl(1);
                         break;
-                    case 3:
+                    case 2:                                 // quick play (game screen)
+                        StartCoroutine(selectScene(2, 1f));
+                        break;
+                    case 3:                                 // quit game
                         StartCoroutine(selectScene(-1, 1f));
                         break;
                 }
-
-                // play selection sound
-                soundSource.PlayOneShot(selectSound);
             }
         }
     }
@@ -114,6 +135,29 @@ public class titleEvents : MonoBehaviour
         soundSource.PlayOneShot(moveSound);
     }
 
+    void screenControl(int newScreen)
+    {
+        // diable all screens
+        titleScreen.SetActive(false);
+        how2playScreen.SetActive(false);
+
+        // change the screen
+        switch (newScreen)
+        {
+            default:
+            case 0:
+                // enable title
+                titleScreen.SetActive(true);
+                selecting = true;
+                break;
+            case 1:
+                // enable tutorial
+                how2playScreen.SetActive(true);
+                selecting = false;
+                break;
+        }
+    }
+
     IEnumerator selectScene(int scene, float duration)
     {
         // fade scene & music
@@ -137,7 +181,7 @@ public class titleEvents : MonoBehaviour
             /*  SCENES
              *  0 = TITLE SCREEN
              *  1 = QUICK PLAY
-             *  2 = PLAY GAME 
+             *  2 = VISUAL NOVEL START
              *  3 = TUTORIAL
              */
             Application.Quit();

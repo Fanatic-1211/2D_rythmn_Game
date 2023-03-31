@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 93e8c7d7418e2f749af96573c7d85175
   - enabled: 1
-    path: Assets/Scenes/GameScreen.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/NovelScene.unity
     guid: f30e68e7e0ee21945b8fafff8229b1fc
+  - enabled: 1
+    path: Assets/Scenes/GameScreen.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: d5086a6c99eb22a48975d1eea563fbe1
