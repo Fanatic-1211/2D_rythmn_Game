@@ -91,7 +91,7 @@
 [Character] Wesley
 [Line] Oh, no, not partiuclarly. The enviroment is pretty friendly.
 [Character] Wesley [EXPR] Smile [POSE] Open
-[Line] I-I've actualy met a lot of nice people there...
+[Line] I-I've actually met a lot of nice people there...
 [Character] Aria [EXPR] Silly [POSE] Open
 [Line] That's great! Good coworkers always makes the ol' nine to five way more bearable!
 [Character] Aria [EXPR] Happy [Pose] Open
@@ -114,9 +114,13 @@
 [Character] Aria [EXPR] Confused [POSE] Closed
 [Line] Oh, shoot! That's my stop!
 [Character] Aria [EXPR] Excited [POSE] Open
-[Line] It was nice talking to you, Wesley!
-[Character] Wesley
-[Line] You too.
+[Line] It was nice talking to you, Wes!
+[Character] Aria [EXPR] Confused [POSE] Closed
+[Line] Wes? Can I call ya Wes?
+[Character] Wesley [EXPR] Worried [POSE] Hold
+[Line] O-Oh uhm, sure...
+[Character] Wesley [EXPR] Smile [POSE] Hold
+[Line] B-Bye!
 [Toggle] npc
 [Toggle] Aria
 [Wait] 1
@@ -145,12 +149,15 @@
 [Character] Aria [EXPR] Silly [POSE] Down
 [Line] Heheh, you're too kind
 [Character] Boss
-[Line] Nonesense! Whenever there's an issue, we can always count on you to fix it.
+[Line] Nonsense! Whenever there's an issue, we can always count on you to fix it.
 [Line] Speaking of, let me introduce you to a new hire.
 [Line] She's been here for a few days now, but since you've been out, it's about time you got properly introduced.
 [Character] Carrie [EXPR] default [POSE] default
 [Line] Hello there, it's nice to meet you. I'm Carrie.
-[Character] Aria [EXPR] Happy [POSE] Open
+[Character] Aria [EXPR] Exctied [POSE] Open
+[Character] [OFF]
+[Line] [Oh wow, she's pretty]
+[Character] Aria [EXPR] Exctied [POSE] Open
 [Line] Nice to meet you too! Welcome to the company.
 [Character] Boss [EXPR] na [POSE] na
 [Line] Carrie's in your department, so I'm asking you to keep an eye out for her to make sure she's adjusting okay.
@@ -159,7 +166,7 @@
 [Character] Aria [EXPR] Happy
 [Line] Feel free to come bother me if you need anything, 'kay Carrie?
 [Character] Carrie [EXPR] default [POSE] default
-[Line] M-Mhm. I can do that.
+[Line] Sound's good. I can do that.
 [Line] Thank you.
 [Character] Aria [EXPR] Happy [POSE] Down
 [Line] Not a problem at all!
