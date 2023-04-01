@@ -38,7 +38,7 @@ public class VN_Control : MonoBehaviour
     public GameObject ariaVisual;
     public GameObject npcVisual;
 
-    // sounds for text crawling
+    // sounds for text crawling and clicking noises
     public AudioSource txtBeep;
 
     // Start is called before the first frame update

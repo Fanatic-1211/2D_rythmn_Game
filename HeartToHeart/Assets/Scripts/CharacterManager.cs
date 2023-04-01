@@ -388,6 +388,15 @@ public class CharacterManager : MonoBehaviour
             case "Excited":       // index 8
                 newIndex = 8;
                 break;
+            case "Wink":
+                newIndex = 10;
+                break;
+            case "Surprise":
+                newIndex = 12;
+                break;
+            case "Regret":
+                newIndex = 14;
+                break;
             default:
                 print("error, no expression found");
                 break;
@@ -473,6 +482,9 @@ public class CharacterManager : MonoBehaviour
                 break;
             case "Down":
                 newIndex = 2;
+                break;
+            case "Point":
+                newIndex = 3;
                 break;
         }
 

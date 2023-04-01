@@ -11,7 +11,7 @@
 [Character] Aria [EXPR] Happy [POSE] Down
 [Character] [OFF]
 [Line] [The layout of this place isn't even remotely similar to the old place I used to live]
-[Character] Aria [EXPR] Confused
+[Character] Aria [EXPR] Regret
 [Character] [OFF]
 [Line] [I almost walked right into a wall last night when looking for the bathroom]
 [Character] Aria [EXPR] Happy
@@ -21,7 +21,9 @@
 [Line] Jeeze, this place is such a mess...
 [Line] Did I always have this much stuff?
 [Line] I spent some time yesterday unpacking some of the bigger things...
+[Character] Aria [EXPR] Regret
 [Line] ... and yet it looks like I haven't even made a dent!
+[Character] Aria [EXPR] Confused
 [Line] I guess it feels like more when it's all packed away in boxes.
 [Character] Aria [EXPR] Worried
 [Character] [OFF]
@@ -41,7 +43,7 @@
 
 [Wait] 1
 [Toggle] Aria
-[Character] Aria
+[Character] Aria [EXPR] Surprise
 [Character] [OFF]
 [Line] [Huh, not nearly as crowded as the line I used to take]
 [Character] Aria [EXPR] Excited
@@ -87,6 +89,7 @@
 [Line] Well... more than I do already.
 [Character] Aria
 [Line] Hmm, that is true.
+[Character] Aria [EXPR] Surprise
 [Line] Is the place you work strict?
 [Character] Wesley
 [Line] Oh, no, not partiuclarly. The enviroment is pretty friendly.
@@ -97,12 +100,13 @@
 [Character] Aria [EXPR] Happy [Pose] Open
 [Line] And I wouldn't worry too hard then,
 [Line] It's good to be on time, but it seems like nobody would penalize you if you happened to be a bit late.
-[Character] Aria [EXPR] Silly [POSE] Closed
+[Character] Aria [EXPR] Silly [POSE] Point
 [Line] And maybe this is intuition, but you sound like a very hard-working and responsible person!
 [Character] Wesley
 [Line] You think so...?
-[Character] Aria [EXPR] Happy [POSE] Down
+[Character] Aria [EXPR] Wink [POSE] Down
 [Line] Without a doubt! It's written all over your face.
+[Character] Aria [EXPR] Happy [POSE] Down
 [Line] And a little bit of lateness wouldn't change that.
 [Character] Wesley
 [Line] I see...
@@ -122,8 +126,8 @@
 [Character] Wesley [EXPR] Smile [POSE] Hold
 [Line] B-Bye!
 [Toggle] npc
+[Wait] 0.5
 [Toggle] Aria
-[Wait] 1
 
 
 [Background] [F] Office
@@ -135,7 +139,7 @@
 [Character] Aria [EXPR] Happy [POSE] Down
 [Character] [OFF]
 [Line] [Ah, back in the office. Feels like nothing's changed]
-[Character] Aria [EXPR] Confused [POSE] Closed
+[Character] Aria [EXPR] Regret [POSE] Closed
 [Line] [Well, obviously, it's only been a week or so, haha]
 [Toggle] npc
 [Character] Boss [EXPR] na [POSE] na
@@ -154,10 +158,10 @@
 [Line] She's been here for a few days now, but since you've been out, it's about time you got properly introduced.
 [Character] Carrie [EXPR] default [POSE] default
 [Line] Hello there, it's nice to meet you. I'm Carrie.
-[Character] Aria [EXPR] Exctied [POSE] Open
+[Character] Aria [EXPR] Surprise
 [Character] [OFF]
 [Line] [Oh wow, she's pretty]
-[Character] Aria [EXPR] Exctied [POSE] Open
+[Character] Aria [EXPR] Excited [POSE] Open
 [Line] Nice to meet you too! Welcome to the company.
 [Character] Boss [EXPR] na [POSE] na
 [Line] Carrie's in your department, so I'm asking you to keep an eye out for her to make sure she's adjusting okay.
@@ -168,12 +172,14 @@
 [Character] Carrie [EXPR] default [POSE] default
 [Line] Sound's good. I can do that.
 [Line] Thank you.
-[Character] Aria [EXPR] Happy [POSE] Down
+[Character] Aria [EXPR] Wink [POSE] Down
 [Line] Not a problem at all!
 [Character] Boss [EXPR] na [POSE] na
 [Line] Wonderful! I'll leave you all to it, then!
 [Toggle] npc
-[Character] Aria
+[Wait] 0.5
+[Character] Aria [EXPR] Happy
 [Line] Welp, no need in dilly dallying, then!
 [Line] Got plenty of work to catch up from when I was gone.
 [Line] I bet some music'll help me get in the grove!
+[Toggle] Aria
