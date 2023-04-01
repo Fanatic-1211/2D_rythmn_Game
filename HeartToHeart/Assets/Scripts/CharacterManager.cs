@@ -98,7 +98,7 @@ public class CharacterManager : MonoBehaviour
         characters.Add(new("Aria", 0.1f, new Color(0.264f, 0.078f, 0.078f, 1)));
         characters.Add(new("Wesley", 0.08f, new Color(0.176f, 0.095f, 0.302f, 1)));
         characters.Add(new("Carrie", 0.12f, new Color(0.179f, 0.253f, 0.255f, 1)));
-        characters.Add(new("Boss", 0.1f, Color.black)); // (because it's a little silhouetto of a man)
+        characters.Add(new("Boss", 0.1f, Color.grey)); // (because it's a little silhouetto of a man)
 
         // add nametag indices, too
         characters[0].setNametageInd(0);
@@ -126,21 +126,28 @@ public class CharacterManager : MonoBehaviour
         // increment 1 for the closed expression (orgnization purposely made for this)
         int newExp = activeCharacter.getExpIndex() + 1;
 
-        // set image to the appropriate character
-        switch(activeCharacter.getName())
+        // only change expression if not a multiple of 2
+        if (activeCharacter.getExpIndex() % 2 == 0)
         {
-            case "Aria":
-                aria_expr.texture = aExpr[newExp];
-                break;
-            case "Wesley":
-                npc_expr.texture = wExpr[newExp];
-                break;
-            case "Carrie":
-                npc_expr.texture = cExpr[newExp];
-                break;
-            case "Boss":
-                // doesn't need anything since there's no difference
-                break;
+            // set image to the appropriate character
+            switch (activeCharacter.getName())
+            {
+                case "Aria":
+                    aria_expr.texture = aExpr[newExp];
+                    break;
+                case "Wesley":
+                    npc_expr.texture = wExpr[newExp];
+                    break;
+                case "Carrie":
+                    npc_expr.texture = cExpr[newExp];
+                    break;
+                case "Boss":
+                    // doesn't need anything since there's no difference
+                    break;
+            }
+
+            // set val
+            activeCharacter.setExpIndex(newExp);
         }
 
         // sets active char to null
@@ -179,6 +186,9 @@ public class CharacterManager : MonoBehaviour
                     // doesn't need anything since there's no difference
                     break;
             }
+
+            // set the next expressin to the index for the active character
+            activeCharacter.setExpIndex(newExp);
         }
     }
 
@@ -255,6 +265,9 @@ public class CharacterManager : MonoBehaviour
                 // doesn't need anything since there's no difference
                 break;
         }
+
+        // change index
+        activeCharacter.setExpIndex(newExp);
     }
 
     // -------------- CHARACTER MOVEMENT HANDLERS -------------- //
@@ -348,6 +361,9 @@ public class CharacterManager : MonoBehaviour
             case "Carrie":
                 SetExpressionCarrie(expr);
                 break;
+            default:
+                SetExpressionMisc(expr);
+                break;
         }
     }
     void SetExpressionAria(string expr)
@@ -371,6 +387,15 @@ public class CharacterManager : MonoBehaviour
                 break;
             case "Excited":       // index 8
                 newIndex = 8;
+                break;
+            case "Wink":
+                newIndex = 10;
+                break;
+            case "Surprise":
+                newIndex = 12;
+                break;
+            case "Regret":
+                newIndex = 14;
                 break;
             default:
                 print("error, no expression found");
@@ -419,6 +444,10 @@ public class CharacterManager : MonoBehaviour
                 break;
         }
     }
+    void SetExpressionMisc(string expr)
+    {
+        npc_expr.texture = misc[0];
+    }
 
     // -------------- CHARACTER POSE HANDLERS -------------- //
     void SetCharacterPose(string pose)
@@ -433,6 +462,9 @@ public class CharacterManager : MonoBehaviour
                 break;
             case "Carrie":
                 SetPoseCarrie(pose);
+                break;
+            default:
+                SetPoseMic(pose);
                 break;
         }
     }
@@ -450,6 +482,9 @@ public class CharacterManager : MonoBehaviour
                 break;
             case "Down":
                 newIndex = 2;
+                break;
+            case "Point":
+                newIndex = 3;
                 break;
         }
 
@@ -487,4 +522,9 @@ public class CharacterManager : MonoBehaviour
                 break;
         }
     }
+    void SetPoseMic(string pose)
+    {
+        npc_body.texture = misc[0];
+    }
+
 }
