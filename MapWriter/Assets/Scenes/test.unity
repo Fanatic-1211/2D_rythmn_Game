@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &1602020630 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8625389733478079432, guid: 1f37a789ad2918643a56c7b75a542165, type: 3}
+  m_PrefabInstance: {fileID: 1995140875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1995140875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +135,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8625389733478079432, guid: 1f37a789ad2918643a56c7b75a542165, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: df0db3e3bf21673499bf9192be11c881, type: 3}
+    - target: {fileID: 8625389733478079433, guid: 1f37a789ad2918643a56c7b75a542165, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 27f14ccff36a13443aacfaab64df1fce, type: 3}
+    - target: {fileID: 8625389733478079433, guid: 1f37a789ad2918643a56c7b75a542165, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1602020630}
     - target: {fileID: 8625389733478079437, guid: 1f37a789ad2918643a56c7b75a542165, type: 3}
       propertyPath: m_Name
       value: Field

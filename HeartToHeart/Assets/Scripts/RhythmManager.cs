@@ -64,6 +64,7 @@ public class RhythmManager : MonoBehaviour
         holdNotes = noteGen.getHoldNotes("Assets/Map/TestHoldMap.txt");
 
         notes = noteGen.getNotes("Assets/Map/TestMap.txt");
+        audSource.Play();
     }
 
     // Update is called once per frame
@@ -402,134 +403,19 @@ public class RhythmManager : MonoBehaviour
             case 1:
                 // perfect
                 gradePrefab.GetComponent<SpriteRenderer>().sprite = perfect;
-                switch (type)
-                {
-                    case NOTE_TYPE.HL:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.HR:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.HU:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.HD:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.L:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.R:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.U:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.D:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-
-                    case NOTE_TYPE.UR:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.UL:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.DL:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.DR:
-                        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                }
-                    break;
+              
+                perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                break;
             case 2:
                 // good
                 gradePrefab.GetComponent<SpriteRenderer>().sprite = good;
-                switch (type)
-                {
-                    case NOTE_TYPE.HL:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.HR:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.HU:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.HD:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.L:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.R:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.U:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.D:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-
-                    case NOTE_TYPE.UR:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.UL:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.DL:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.DR:
-                        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                }
+                goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
                 break;
             case 3:
                 // bad
                 gradePrefab.GetComponent<SpriteRenderer>().sprite = bad;
-                switch (type)
-                {
-                    case NOTE_TYPE.HL:
-                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.HR:
-                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.HU:
-                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.HD:
-                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.L:
-                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.R:
-                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                    case NOTE_TYPE.U:
-                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.D:
-                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-
-                    case NOTE_TYPE.UR:
-                        badObject = Instantiate(gradePrefab, (gradeLocationUp.transform));
-                        break;
-                    case NOTE_TYPE.UL:
-                        badObject = Instantiate(gradePrefab, (gradeLocationLeft.transform));
-                        break;
-                    case NOTE_TYPE.DL:
-                        badObject = Instantiate(gradePrefab, (gradeLocationDown.transform));
-                        break;
-                    case NOTE_TYPE.DR:
-                        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
-                        break;
-                }
+               
+                badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
                 break;
         }
         yield return new WaitForSeconds(duration);
