@@ -10,12 +10,17 @@ public class WriteMap : MonoBehaviour
     public enum NOTE_TYPE { U, D, L, R, UL, UR, DL, DR };
     float time = 0;
     // play the song
+    public AudioSource source;
+    public AudioClip clip;
     // ring segments
     public RingControl ringL;
     public RingControl ringR;
     public RingControl ringU;
     public RingControl ringD;
     float heldTime = 0f;
+    float heldTime2 = 0f;
+    float heldTime3 = 0f;
+    float heldTime4 = 0f;
     float maxHeldTime = 0.5f;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,7 @@ public class WriteMap : MonoBehaviour
         {
             writer.Write("");
         }
+        source.Play();
     }
 
     // Update is called once per frame
@@ -50,10 +56,7 @@ public class WriteMap : MonoBehaviour
             heldTime = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.U));
         }
-        else if (Input.GetKey("w"))
-        {
-
-        }
+        
         else if (Input.GetKeyUp("w"))
         {
            
@@ -76,19 +79,15 @@ public class WriteMap : MonoBehaviour
         {
             ringL.flashRing();
             WriteToFile("L " + time);
-            heldTime = Time.time;
+            heldTime2 = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.L));
-        }
-        else if (Input.GetKey("a"))
-        {
-
         }
         else if (Input.GetKeyUp("a"))
         {
-            heldTime = Time.time - heldTime;
-            float temp = time - heldTime;
-            WriteToHoldFile("HL " + temp + " " + heldTime);
-            if (heldTime < maxHeldTime)
+            heldTime2 = Time.time - heldTime2;
+            float temp = time - heldTime2;
+            WriteToHoldFile("HL " + temp + " " + heldTime2);
+            if (heldTime2 < maxHeldTime)
             {
                 RemoveLastHoldLine();
 
@@ -103,19 +102,16 @@ public class WriteMap : MonoBehaviour
         {
             ringD.flashRing();
             WriteToFile("D " + time);
-            heldTime = Time.time;
+            heldTime3 = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.D));
         }
-        else if (Input.GetKey("s"))
-        {
 
-        }
         else if (Input.GetKeyUp("s"))
         {
-            heldTime = Time.time - heldTime;
-            float temp = time - heldTime;
-            WriteToHoldFile("HD " + temp + " " + heldTime);
-            if (heldTime < maxHeldTime)
+            heldTime3 = Time.time - heldTime3;
+            float temp = time - heldTime3;
+            WriteToHoldFile("HD " + temp + " " + heldTime3);
+            if (heldTime3 < maxHeldTime)
             {
                 RemoveLastHoldLine();
          
@@ -130,19 +126,15 @@ public class WriteMap : MonoBehaviour
         {
             ringR.flashRing();
             WriteToFile("R " + time);
-            heldTime = Time.time;
+            heldTime4 = Time.time;
             StartCoroutine(diagonalTracking(0.1f, NOTE_TYPE.R));
-        }
-        else if (Input.GetKey("d"))
-        {
-
         }
         else if (Input.GetKeyUp("d"))
         {
-            heldTime = Time.time - heldTime;
-            float temp = time - heldTime;
-            WriteToHoldFile("HR " + temp + " " + heldTime);
-            if (heldTime < maxHeldTime)
+            heldTime4 = Time.time - heldTime4;
+            float temp = time - heldTime4;
+            WriteToHoldFile("HR " + temp + " " + heldTime4);
+            if (heldTime4 < maxHeldTime)
             {
                 RemoveLastHoldLine();
 
