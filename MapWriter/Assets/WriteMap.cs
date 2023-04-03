@@ -9,9 +9,11 @@ public class WriteMap : MonoBehaviour
 
     public enum NOTE_TYPE { U, D, L, R, UL, UR, DL, DR };
     float time = 0;
+
     // play the song
     public AudioSource source;
     public AudioClip clip;
+
     // ring segments
     public RingControl ringL;
     public RingControl ringR;
