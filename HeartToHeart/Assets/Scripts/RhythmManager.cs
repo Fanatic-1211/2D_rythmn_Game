@@ -61,7 +61,14 @@ public class RhythmManager : MonoBehaviour
         holdNotes = noteGen.getHoldNotes("Assets/Map/tutorial/holdMap.txt");
 
         notes = noteGen.getNotes("Assets/Map/tutorial/map.txt");
-        
+        gradePrefab.GetComponent<SpriteRenderer>().sprite = perfect;
+        perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+        gradePrefab.GetComponent<SpriteRenderer>().sprite = good;
+        goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+        gradePrefab.GetComponent<SpriteRenderer>().sprite = bad;
+        badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+        setZero();
+
         // FIXME: FIGURE OUT WHY THERE ARE DEFAULT NOTES WITH A TIME = 0 INTHE FIELD
 
         audSource.Play();
@@ -400,38 +407,63 @@ public class RhythmManager : MonoBehaviour
 
         // end previous coroutine
         // call coroutine
-
+        StopCoroutine("printGrade");
         StartCoroutine(printGrade(duration, grade, type));
     }
     IEnumerator printGrade(float duration, int grade, NOTE_TYPE type)
     {
-        Destroy(badObject);
-        Destroy(goodObject);
-        Destroy(perfectObject);
+        // Destroy(badObject);
+        // Destroy(goodObject);
+        // Destroy(perfectObject);
         switch (grade)
         {
             case 1:
                 // perfect
-                gradePrefab.GetComponent<SpriteRenderer>().sprite = perfect;
-              
-                perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                // gradePrefab.GetComponent<SpriteRenderer>().sprite = perfect;
+                // perfectObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
                 break;
             case 2:
                 // good
-                gradePrefab.GetComponent<SpriteRenderer>().sprite = good;
-                goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                // gradePrefab.GetComponent<SpriteRenderer>().sprite = good;
+                // goodObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
                 break;
             case 3:
                 // bad
-                gradePrefab.GetComponent<SpriteRenderer>().sprite = bad;
-               
-                badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
+                // gradePrefab.GetComponent<SpriteRenderer>().sprite = bad;
+                // badObject = Instantiate(gradePrefab, (gradeLocationRight.transform));
                 break;
         }
-        yield return new WaitForSeconds(duration);
-        StopCoroutine("printGrade");
-        Destroy(badObject);
-        Destroy(goodObject);
-        Destroy(perfectObject);
+        float elapsed = 0;
+
+        while (elapsed < duration)
+        {
+            // change alpha channel to decrease back to half opacity
+            float alpha = Mathf.Lerp(1f, 0.0f, elapsed / duration) + .2f;
+            switch(grade)
+            {
+                case 1:
+                    perfectObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+                    break;
+                case 2:
+                    goodObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+                    break;
+                case 3:
+                    badObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha);
+                    break;
+            }
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        setZero();
+        // Destroy(badObject);
+        // Destroy(goodObject);
+        // Destroy(perfectObject);
+    }
+    public void setZero()
+    {
+        perfectObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        goodObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        badObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
     }
 }
