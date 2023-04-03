@@ -174,9 +174,8 @@ public class NoteGen : MonoBehaviour
             }
             GameObject newNote = Instantiate(prefab);
 
-            if (nextData!=null && float.Parse(nextData[1]) - float.Parse(data[1]) < 0.05)
+            if (nextData!=null && float.Parse(nextData[1]) - float.Parse(data[1]) < 0.05 && checkOpp(data[0], nextData[0]))
             {
-                if (checkOpp(data[0], nextData[0])) {
                     GameObject newNote2 = Instantiate(prefab);
                     switch (data[0])
                 {
@@ -200,7 +199,7 @@ public class NoteGen : MonoBehaviour
                     i++;
                     noteList.Add(newNote.GetComponent<Note>());
                     noteList.Add(newNote2.GetComponent<Note>());
-                }
+                
                 nextData = null;
             }
             else
