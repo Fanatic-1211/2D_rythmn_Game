@@ -6,7 +6,7 @@ using UnityEngine;
 public enum NOTE_TYPE { U, D, L, R, UL, UR, DL, DR, HU, HD, HL, HR };
 public class Note : MonoBehaviour
 {
-    float time;
+    public float time;
     public NOTE_TYPE type;
 
     // useful math for diagonals
@@ -19,7 +19,6 @@ public class Note : MonoBehaviour
     void Start()
     {
         // assign time (currently set to def value)
-        // time = 2.0f;
 
         // get reference to RhythmManager
         parent = GameObject.Find("Field").GetComponent<RhythmManager>();

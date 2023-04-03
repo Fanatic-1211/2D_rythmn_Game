@@ -25,11 +25,9 @@ public class RhythmManager : MonoBehaviour
 
     // invincibility frames
     static float invTime = 2.0f;
-    float curInv; // don't think I'll use this
 
     // bool for advancing notes
     bool notePause = false;
-    bool held = false;
     // song to play
     public AudioSource audSource;
 
@@ -60,23 +58,35 @@ public class RhythmManager : MonoBehaviour
 
         heart = GameObject.Find("Heart").GetComponent<HeartControl>();
 
-        print("generating notes...");
-        holdNotes = noteGen.getHoldNotes("Assets/Map/TestHoldMap.txt");
+        holdNotes = noteGen.getHoldNotes("Assets/Map/tutorial/holdMap.txt");
 
-        notes = noteGen.getNotes("Assets/Map/TestMap.txt");
+        notes = noteGen.getNotes("Assets/Map/tutorial/map.txt");
+        
+        // FIXME: FIGURE OUT WHY THERE ARE DEFAULT NOTES WITH A TIME = 0 INTHE FIELD
+
         audSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if the song is over, tell someone
+        if (!(audSource.isPlaying || notePause))
+            print("song over!");
+
         if (!notePause)
             advanceNotes();
 
         tapTracking();
 
         if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape))
+        {
             notePause = !notePause;
+            if (audSource.isPlaying)
+                audSource.Pause();
+            else
+                audSource.Play();
+        }
     }
 
     void advanceNotes()
